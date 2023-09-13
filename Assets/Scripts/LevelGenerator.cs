@@ -1,30 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LevelGenerator : MonoBehaviour
 {
 
-    
-
-    public GameObject block;
-    private int[][] blockArray;
+    public GameObject[] blocks;
+    private List<GameObject> SpawnedObjects = new List<GameObject>();
+    [SerializeField] private bool isGenerated = false;
     //private int spawnOffsetX = 1;
     //private int spawnOffsetY = 1;
 
-    void Start()
+    int rndOf(int beg, int end)
     {
-       //generateLevel();
+        int rnd = Random.Range(beg, end);
+        Debug.Log("Placing block with ID " + rnd);
+        return rnd;
     }
 
-    // 0 0.5 1
-    // Unoptimized - Tris: 14.0k    Verts: 15.6k - for 15 Blocks - 248k, 215k
-    // Optimized   - Tris: 6.4k    Verts: 11.7k  - for 15 Blocks - 95k, 137k
+    int pickBlock()
+    {
+        int rnd = Random.Range(0, blocks.Length);
+        Debug.Log("Placing block with ID " + rnd);
+        return rnd;
+    }
 
+    void Start()
+    {
+        generateLevel();
+    }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.G))
+        {   
+            generateLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            destroyEverything();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            destroyEverything();
+            generateLevel();
+            Debug.Log("Regenerated!");
+        }
+    }
+
+    void destroyEverything()
+    {
+        while(SpawnedObjects.Count > 0)
+        {
+            Destroy(SpawnedObjects[0].gameObject);
+            SpawnedObjects.RemoveAt(0);
+        }
         
+        Debug.Log("Destroyed everything");
+        isGenerated = false;
+    }
+
+    void placeBlock(float x, float y)
+    {
+        GameObject blockObject = Instantiate(blocks[pickBlock()],
+                new Vector3(x, y, 0f),
+                Quaternion.identity);
+        SpawnedObjects.Add(blockObject.gameObject);
+    }
+
+    void placeTopLayer(float x, float y)
+    {
+        GameObject blockObject = Instantiate(blocks[0],
+                new Vector3(x, y, 0f),
+                Quaternion.identity);
+        SpawnedObjects.Add(blockObject.gameObject);
     }
 
     void generateLevel()
@@ -33,16 +84,36 @@ public class LevelGenerator : MonoBehaviour
         Spawning starts from -2,2,0
         On the first row there are 5 Blocks
          */
-
-        Debug.Log("Generating Level...");
-        for(float i = -2; i <= 2; i++)
+        int nrOfBlocks = new int();
+        if (!isGenerated)
         {
-            for(float j = 2; j > -2; j--)
+            Debug.Log("Generating Level...");
+            for (float i = -2; i <= 2; i++)
             {
-                GameObject gameObject = Instantiate(block,
-                new Vector3(i, j, 0f),
-                Quaternion.identity);
+                for (float j = 2; j > -2; j--)
+                {
+                    /*
+                    if (i == -2)
+                    {
+                        placeTopLayer(-2, j);
+                    }
+                    else
+                    {
+                        placeBlock(i, j);
+                    }
+                    */
+                    placeBlock(i, j);
+                    nrOfBlocks++;
+                }
             }
+            Debug.Log("Generated " + nrOfBlocks + " blocks");
+            Debug.Log("Size of SpawnedObjects: " + SpawnedObjects.Count);
+            isGenerated = true;
+        } 
+        else
+        {
+            Debug.Log("Is already generated!");
+            Debug.Log("Size of SpawnedObjects: " + SpawnedObjects.Count);
         }
     }
 }
