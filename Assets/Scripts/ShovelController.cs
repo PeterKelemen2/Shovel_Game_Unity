@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -8,8 +9,8 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class ShovelController : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
-    [SerializeField] float upForce = 1f;
+    [SerializeField] float speed = 3f;
+    [SerializeField] float upForce = 3f;
     Rigidbody rb;
 
     void Start()
@@ -17,7 +18,6 @@ public class ShovelController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        // rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
     }
 
     void Update()
@@ -25,29 +25,36 @@ public class ShovelController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
-            // Debug.Log("Moved left");
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
-            // Debug.Log("Moved right");
         }
+
+        
     }
 
     private bool canTrigger = true;
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
+        
         if (canTrigger)
         {
             Debug.Log("Collided");
+
             canTrigger = false;
-            StartCoroutine(TriggerAfterDelay()); 
+            StartCoroutine(TriggerAfterDelay());
 
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
         }
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // TODO: Figure out how to avoid colliding with side of blocks
     }
 
     private IEnumerator TriggerAfterDelay()

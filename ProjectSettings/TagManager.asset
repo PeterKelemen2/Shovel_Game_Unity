@@ -8,6 +8,9 @@ TagManager:
   - Shovel
   - Dirt
   - Stone
+  - TopCollider
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX

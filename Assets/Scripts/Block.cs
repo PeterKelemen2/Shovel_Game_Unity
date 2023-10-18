@@ -9,6 +9,7 @@ public class Block : MonoBehaviour
     [SerializeField] int health;
     public TextMeshPro hpText;
 
+
     void Start()
     {   
 
@@ -33,7 +34,7 @@ public class Block : MonoBehaviour
         
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision collision)
     {
         health--;
         setHPText();
