@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
 {
 
     public GameObject[] blocks;
+    public GameObject shovel;
     private List<GameObject> SpawnedObjects = new List<GameObject>();
     [SerializeField] private bool isGenerated = false;
     //private int spawnOffsetX = 1;
@@ -30,6 +31,14 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         generateLevel();
+        spawnShovel();
+    }
+
+    private void spawnShovel()
+    {
+        GameObject shovelObject = Instantiate(shovel,
+                new Vector3(0f, 4f, 0f),
+                Quaternion.identity);
     }
 
     void Update()
