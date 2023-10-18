@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class ShovelController : MonoBehaviour
 {
@@ -22,21 +25,37 @@ public class ShovelController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
-            Debug.Log("Moved left");
+            // Debug.Log("Moved left");
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
-            Debug.Log("Moved right");
+            // Debug.Log("Moved right");
         }
     }
 
+    private bool canTrigger = true;
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided");
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        if (canTrigger)
+        {
+            Debug.Log("Collided");
+            canTrigger = false;
+            StartCoroutine(TriggerAfterDelay()); 
 
-        rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+        }
+        
+    }
+
+    private IEnumerator TriggerAfterDelay()
+    {
+        // This is used so it doesn't add additional force when two blocks are hit
+        yield return new WaitForSeconds(0.1f);
+
+        // Re-enable the trigger
+        canTrigger = true;
     }
 }

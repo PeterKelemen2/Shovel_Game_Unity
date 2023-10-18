@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Block : MonoBehaviour
 {
 
     [SerializeField] int health;
+    public TextMeshPro hpText;
 
     void Start()
     {   
@@ -13,10 +15,12 @@ public class Block : MonoBehaviour
         switch (gameObject.tag){
             case "Dirt":
                 health = 2;
+                setHPText();
                 Debug.Log("Dirt block found!");
                 break;
             case "Stone":
                 health = 5;
+                setHPText();
                 Debug.Log("Stone block found!");
                 break;
             default:
@@ -32,11 +36,16 @@ public class Block : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         health--;
+        setHPText();
         if (health == 0)
         {
             Destroy(gameObject);
         }
     }
 
-    
+    private void setHPText()
+    {
+        hpText.SetText("HP: " + health.ToString());
+    }
+
 }
