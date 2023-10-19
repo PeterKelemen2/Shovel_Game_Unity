@@ -9,29 +9,27 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class ShovelController : MonoBehaviour
 {
-    [SerializeField] float upForce = 40f;
-    [SerializeField] float moveSpeed = 0.05f;
+    private float upForce = 5f;
+    private float moveSpeed = 7f;
     private float horizontalInput;
-    Rigidbody rb;
-    
+    private Rigidbody rb;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        
     }
-    
+
     void FixedUpdate()
     {
         MovePlayer();
     }
-    
+
 
     void Update()
     {
-        
         horizontalInput = Input.GetAxis("Horizontal");
         /*
         if (Input.GetKeyDown(KeyCode.D))
@@ -44,39 +42,45 @@ public class ShovelController : MonoBehaviour
             Vector3 oldVelocity = rb.velocity;
             rb.velocity = (Vector2)new Vector3(-1 * moveSpeed, oldVelocity.y, oldVelocity.z);
         }
-        
+
         */
-
-    }
-
-    private bool canTrigger = true;
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (canTrigger)
+        if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("Collided");
-
-            canTrigger = false;
-            StartCoroutine(TriggerAfterDelay());
-
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+            //transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime));
         }
 
+        if (Input.GetKey(KeyCode.D))
+        {
+            // transform.Translate(Vector3.right * (moveSpeed * Time.deltaTime));
+        }
     }
 
-    void MovePlayer()
-    {
-        Vector3 moveDirection = new Vector3(horizontalInput, 0, 0);
+    private bool _canTrigger = true;
 
-        RaycastHit hit;
-        if (!Physics.Raycast(transform.position, moveDirection, out hit, 0.2f))
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!_canTrigger) return;
+        Debug.Log("Collided");
+
+        _canTrigger = false;
+        StartCoroutine(TriggerAfterDelay());
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+    }
+
+    private void MovePlayer()
+    {
+        var moveDirection = new Vector3(horizontalInput, 0, 0);
+
+        if (!Physics.Raycast(transform.position, moveDirection, out _, 0.2f))
         {
             // If no obstacles are in the way, move the object.
-            rb.velocity = new Vector3(moveDirection.x * moveSpeed, 
-                rb.velocity.y, rb.velocity.z);
+            var velocity = rb.velocity;
+            velocity = new Vector3(moveDirection.x * moveSpeed,
+                velocity.y, velocity.z);
+            rb.velocity = velocity;
         }
         else
         {
@@ -90,7 +94,6 @@ public class ShovelController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         // Re-enable the trigger
-        canTrigger = true;
+        _canTrigger = true;
     }
-
 }
