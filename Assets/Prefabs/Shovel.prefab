@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4057487687207756112}
   - component: {fileID: 3145388198002499508}
   - component: {fileID: 1147032437063604601}
-  - component: {fileID: 7770460559858496049}
+  - component: {fileID: 1348844025197680780}
+  - component: {fileID: 5666903973779875131}
   m_Layer: 0
   m_Name: Shovel
   m_TagString: Untagged
@@ -47,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb6cf47fd242c64eb0858e15e0be2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  upForce: 20
+  upForce: 3
+  moveSpeed: 10
 --- !u!54 &1147032437063604601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -57,7 +58,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3676282141701471210}
   serializedVersion: 2
-  m_Mass: 4
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.5
   m_UseGravity: 1
@@ -65,8 +66,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!136 &7770460559858496049
-CapsuleCollider:
+--- !u!65 &1348844025197680780
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -75,10 +76,23 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.1193891
-  m_Height: 0.39060327
-  m_Direction: 1
-  m_Center: {x: 0.00023852289, y: -0.54368436, z: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.26393387, y: 0.90024, z: 1}
+  m_Center: {x: -0.001348123, y: -0.21165273, z: 0}
+--- !u!136 &5666903973779875131
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676282141701471210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.038941383
+  m_Height: 0.23927045
+  m_Direction: 0
+  m_Center: {x: 0.0029317439, y: -0.7336824, z: 0}
 --- !u!1 &8913443736655129264
 GameObject:
   m_ObjectHideFlags: 0

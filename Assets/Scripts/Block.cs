@@ -34,19 +34,24 @@ public class Block : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter(Collision collision)
+
+    private void setHPText()
     {
+        hpText.SetText("HP: " + health.ToString());
+    }
+
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Entered Block Trigger");
         health--;
+        Debug.Log("HP-");
         setHPText();
         if (health == 0)
         {
             Destroy(gameObject);
         }
-    }
 
-    private void setHPText()
-    {
-        hpText.SetText("HP: " + health.ToString());
     }
 
 }
