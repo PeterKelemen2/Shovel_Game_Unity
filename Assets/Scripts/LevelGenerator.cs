@@ -31,7 +31,7 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         generateLevel();
-        spawnShovel();
+        //spawnShovel();
     }
 
     private void spawnShovel()

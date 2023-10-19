@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2705273815476425252}
   - component: {fileID: 5583676265264998949}
   m_Layer: 0
-  m_Name: Block_Optimized
+  m_Name: Block_Dirt
   m_TagString: Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
