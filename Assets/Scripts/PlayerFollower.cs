@@ -20,7 +20,7 @@ public class PlayerFollower : MonoBehaviour
     {
         if (_isplayerNotNull)
         {
-            Debug.Log("Player attached");
+            //Debug.Log("Player attached");
             // Get the player's position
 
 
@@ -33,13 +33,13 @@ public class PlayerFollower : MonoBehaviour
 
             // Apply the Z-axis offset
             //targetPosition.z += _zOffset;
-            Debug.Log("Target position: " + targetPosition);
+            // Debug.Log("Target position: " + targetPosition);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition,
                 smoothSpeed * Time.deltaTime);
 
             // Set the camera's position to match the player's position with the Z-axis offset
             transform.position = smoothedPosition;
-            Debug.Log("Camera moved to" + targetPosition);
+            // Debug.Log("Camera moved to" + targetPosition);
         }
     }
 }

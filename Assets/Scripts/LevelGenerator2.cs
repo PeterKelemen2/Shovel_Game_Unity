@@ -8,70 +8,41 @@ public class LevelGenerator2 : MonoBehaviour
 {
     public GameObject[] blocks;
     public GameObject shovel;
+    public GameObject camera;
+    private float cameraY;
     private List<GameObject> SpawnedObjects = new List<GameObject>();
 
     private bool isGenerated = false;
-    //private int spawnOffsetX = 1;
-    //private int spawnOffsetY = 1;
 
-    int rndOf(int beg, int end)
-    {
-        int rnd = Random.Range(beg, end);
-        Debug.Log("Placing block with ID " + rnd);
-        return rnd;
-    }
+    /*
+     Blocks are spawned apart from each other by '1'
+     This being on the X and Y axis
+     */
+    private int startSpawnX = -2;
+    private int startSpawnY = 2;
+    private int spawnOffsetX = 0;
+    private int spawnOffsetY = 0;
 
+    // ReSharper disable Unity.PerformanceAnalysis
     int pickBlock()
     {
-        int rnd = Random.Range(0, blocks.Length);
+        var rnd = Random.Range(0, blocks.Length);
         Debug.Log("Placing block with ID " + rnd);
         return rnd;
     }
 
     void Start()
     {
-        generateLevel();
-        // spawnShovel();
+        cameraY = camera.transform.position.y;
+        generateTopLayer();
     }
 
-    private void spawnShovel()
-    {
-        GameObject shovelObject = Instantiate(shovel,
-            new Vector3(0f, 4f, 0f),
-            Quaternion.identity);
-    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            generateLevel();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            destroyEverything();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            destroyEverything();
-            generateLevel();
-            Debug.Log("Regenerated!");
-        }
+        generateLevel();
     }
 
-    void destroyEverything()
-    {
-        while (SpawnedObjects.Count > 0)
-        {
-            Destroy(SpawnedObjects[0].gameObject);
-            SpawnedObjects.RemoveAt(0);
-        }
-
-        Debug.Log("Destroyed everything");
-        isGenerated = false;
-    }
 
     void placeBlock(float x, float y)
     {
@@ -81,51 +52,23 @@ public class LevelGenerator2 : MonoBehaviour
         SpawnedObjects.Add(blockObject.gameObject);
     }
 
-    void placeTopLayer(float x, float y)
+    private void generateTopLayer()
     {
-        GameObject blockObject = Instantiate(blocks[0],
-            new Vector3(x, y, 0f),
-            Quaternion.identity);
-        SpawnedObjects.Add(blockObject.gameObject);
+        for (int i = 0; i < 5; i++)
+        {
+            placeBlock(-2 + i, 2);
+        }
     }
 
-    void generateLevel()
+    private void generateLevel()
     {
-        /*
-        Spawning starts from -2,2,0
-        On the first row there are 5 Blocks
-         */
-        int nrOfBlocks = new int();
-        if (!isGenerated)
+        if (SpawnedObjects[SpawnedObjects.Count - 1].transform.position.y > cameraY - 3f)
         {
-            Debug.Log("Generating Level...");
-            for (float i = -2; i <= 2; i++)
+            spawnOffsetY--;
+            for (int i = 0; i < 5; i++)
             {
-                for (float j = 2; j > -2; j--)
-                {
-                    /*
-                    if (i == -2)
-                    {
-                        placeTopLayer(-2, j);
-                    }
-                    else
-                    {
-                        placeBlock(i, j);
-                    }
-                    */
-                    placeBlock(i, j);
-                    nrOfBlocks++;
-                }
+                placeBlock(startSpawnX + i, spawnOffsetY);
             }
-
-            Debug.Log("Generated " + nrOfBlocks + " blocks");
-            Debug.Log("Size of SpawnedObjects: " + SpawnedObjects.Count);
-            isGenerated = true;
-        }
-        else
-        {
-            Debug.Log("Is already generated!");
-            Debug.Log("Size of SpawnedObjects: " + SpawnedObjects.Count);
         }
     }
 }

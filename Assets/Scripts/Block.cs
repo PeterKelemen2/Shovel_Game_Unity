@@ -49,7 +49,8 @@ public class Block : MonoBehaviour
         setHPText();
         if (health == 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
     }
