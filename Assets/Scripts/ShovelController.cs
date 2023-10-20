@@ -59,15 +59,19 @@ public class ShovelController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!_canTrigger) return;
-        Debug.Log("Collided");
+        if (!other.gameObject.CompareTag("MainCamera"))
+        {
+            if (!_canTrigger) return;
+            Debug.Log("Collided");
 
-        _canTrigger = false;
-        StartCoroutine(TriggerAfterDelay());
+            _canTrigger = false;
+            StartCoroutine(TriggerAfterDelay());
 
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+        }
+        
     }
 
     private void MovePlayer()

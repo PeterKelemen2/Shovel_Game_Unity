@@ -6,8 +6,6 @@ using UnityEngine;
 public class PlayerFollower : MonoBehaviour
 {
     public GameObject player; // Reference to the player's Transform
-    private float _zOffset = -6.5f; // Adjust the Z-axis offset
-    private float yOffset = -6.5f; // Adjust the Z-axis offset
     private float smoothSpeed = 2f; // Adjust the smoothness of the camera follow
     private bool _isplayerNotNull;
 
@@ -31,9 +29,6 @@ public class PlayerFollower : MonoBehaviour
 
             Vector3 targetPosition = new Vector3(0f, targetY, -6.5f);
 
-            // Apply the Z-axis offset
-            //targetPosition.z += _zOffset;
-            // Debug.Log("Target position: " + targetPosition);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition,
                 smoothSpeed * Time.deltaTime);
 
