@@ -24,6 +24,8 @@ public class LevelGenerator2 : MonoBehaviour
     private int startSpawnX = -2;
 
     private int startSpawnY = 0;
+
+    private int hideOnRow = 0;
     //private int spawnOffsetX = 0;
     //private int spawnOffsetY = 0;
 
@@ -48,7 +50,7 @@ public class LevelGenerator2 : MonoBehaviour
     }
 
 
-    void placeBlock(float x, float y)
+    private void placeBlock(float x, float y)
     {
         GameObject blockObject = Instantiate(blocks[pickBlock()],
             new Vector3(x, y, 0f),
@@ -79,7 +81,15 @@ public class LevelGenerator2 : MonoBehaviour
                 placeBlock(startSpawnX + i, startSpawnY);
             }
         }
-        
-        // TODO: Destroy objects that are not visible anymore
+
+        if (Math.Abs(cameraY) - Math.Abs(SpawnedObjects[hideOnRow].transform.position.y) > 5f)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                Destroy(SpawnedObjects[i + hideOnRow]);
+            }
+
+            hideOnRow += 5;
+        }
     }
 }
