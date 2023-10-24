@@ -1,27 +1,39 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
 public class Block : MonoBehaviour
 {
-
     [SerializeField] int health;
     public TextMeshPro hpText;
+    private ParticleSystem particle;
+    private Renderer[] rendArray;
+    private Renderer rendSingle;
+    private BoxCollider boxCollider;
 
+    private void Awake()
+    {
+        particle = GetComponentInChildren<ParticleSystem>();
+        boxCollider = GetComponentInChildren<BoxCollider>();
+    }
 
     void Start()
-    {   
-
-        switch (gameObject.tag){
+    {
+        switch (gameObject.tag)
+        {
             case "Dirt":
                 health = 2;
                 setHPText();
+                rendArray = GetComponentsInChildren<Renderer>();
                 Debug.Log("Dirt block found!");
                 break;
             case "Stone":
                 health = 5;
                 setHPText();
+                rendSingle = GetComponentInChildren<Renderer>();
                 Debug.Log("Stone block found!");
                 break;
             default:
@@ -31,7 +43,6 @@ public class Block : MonoBehaviour
 
     void Update()
     {
-        
     }
 
 
@@ -50,9 +61,31 @@ public class Block : MonoBehaviour
         if (health == 0)
         {
             //Destroy(gameObject);
-            gameObject.SetActive(false);
+            StartCoroutine(breakBlock());
         }
-
     }
 
+    private IEnumerator breakBlock()
+    {
+        particle.Play();
+        boxCollider.enabled = false;
+        hpText.SetText("");
+
+        if (rendSingle)
+        {
+            rendSingle.enabled = false;
+        }
+        else if (rendArray.Length > 0)
+        {
+            // The last child was the particle system, which destroyed that too
+            for (int i = 0; i < rendArray.Length - 1; i++)
+            {
+                rendArray[i].enabled = false;
+            }
+        }
+
+        yield return new WaitForSeconds(particle.main.startLifetime.constantMax);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
+    }
 }
