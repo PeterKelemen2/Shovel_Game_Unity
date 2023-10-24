@@ -2,16 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerFollower : MonoBehaviour
 {
     public GameObject player; // Reference to the player's Transform
+    public GameObject background;
     private float smoothSpeed = 2f; // Adjust the smoothness of the camera follow
     private bool _isplayerNotNull;
+
+    [SerializeField] public Vector2 uvOffset = new Vector2(0f, 2f);
+    [SerializeField] public Vector2 uvScale = new Vector2(10f, 10f);
+
+    private Renderer rend;
 
     void Start()
     {
         _isplayerNotNull = player != null;
+        rend = background.GetComponent<Renderer>();
+        var material = rend.material;
+        material.mainTextureScale = uvScale;
+        material.mainTextureOffset = uvOffset;
     }
 
     void Update()
@@ -20,7 +31,6 @@ public class PlayerFollower : MonoBehaviour
         {
             //Debug.Log("Player attached");
             // Get the player's position
-
 
             float targetY = (player.transform.position.y * 0.8f) - 2f;
 
@@ -31,6 +41,10 @@ public class PlayerFollower : MonoBehaviour
 
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition,
                 smoothSpeed * Time.deltaTime);
+
+            Vector2 newOffset = new Vector2(0f, smoothedPosition[1] * -0.3f);
+            // Update the material's mainTextureOffset.
+            rend.material.mainTextureOffset = newOffset;
 
             // Set the camera's position to match the player's position with the Z-axis offset
             transform.position = smoothedPosition;
