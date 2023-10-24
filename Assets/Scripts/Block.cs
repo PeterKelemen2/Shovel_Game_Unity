@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
@@ -8,11 +9,13 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] int health;
+    public int blockValue = 0;
     public TextMeshPro hpText;
     private ParticleSystem particle;
     private Renderer[] rendArray;
     private Renderer rendSingle;
     private BoxCollider boxCollider;
+
 
     private void Awake()
     {
@@ -20,18 +23,21 @@ public class Block : MonoBehaviour
         boxCollider = GetComponentInChildren<BoxCollider>();
     }
 
+
     void Start()
     {
         switch (gameObject.tag)
         {
             case "Dirt":
-                health = 2;
+                health = 1;
+                blockValue = 2;
                 setHPText();
                 rendArray = GetComponentsInChildren<Renderer>();
                 Debug.Log("Dirt block found!");
                 break;
             case "Stone":
-                health = 5;
+                health = 1;
+                blockValue = 5;
                 setHPText();
                 rendSingle = GetComponentInChildren<Renderer>();
                 Debug.Log("Stone block found!");
@@ -65,6 +71,23 @@ public class Block : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        //BlockManager.instance.registerBlock(this);
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private void sendBlockValue()
+    {
+        //BlockManager.instance.SendDisableSignal();
+        UIController uiController = FindObjectOfType<UIController>();
+        if (uiController != null)
+        {
+            uiController.receiveBlockValue(blockValue);
+        }
+    }
+
+
     private IEnumerator breakBlock()
     {
         particle.Play();
@@ -84,8 +107,11 @@ public class Block : MonoBehaviour
             }
         }
 
+        sendBlockValue();
         yield return new WaitForSeconds(particle.main.startLifetime.constantMax);
+
         gameObject.SetActive(false);
+
         //Destroy(gameObject);
     }
 }
