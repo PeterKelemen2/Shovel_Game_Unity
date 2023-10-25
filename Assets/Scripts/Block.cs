@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Block : MonoBehaviour
@@ -14,6 +15,7 @@ public class Block : MonoBehaviour
     public TextMeshPro pointsText;
     private ParticleSystem particle;
     private Renderer[] rendArray;
+    private List<Renderer> rendererList = new List<Renderer>();
     private Renderer rendSingle;
     private BoxCollider boxCollider;
 
@@ -37,23 +39,46 @@ public class Block : MonoBehaviour
                 health = 1;
                 blockValue = 2;
                 setHPText();
-                rendArray = GetComponentsInChildren<Renderer>();
+                //rendArray = GetComponentsInChildren<Renderer>();
                 Debug.Log("Dirt block found!");
                 break;
             case "Stone":
                 health = 1;
                 blockValue = 5;
                 setHPText();
-                rendSingle = GetComponentInChildren<Renderer>();
+                //rendSingle = GetComponentInChildren<Renderer>();
                 Debug.Log("Stone block found!");
                 break;
             default:
                 break;
         }
 
+        setRenderer();
         setParticles();
         setAnimatorAndAnimation();
         pointsText.SetText("");
+    }
+
+
+    private void setRenderer()
+    {
+        Transform[] children = gameObject.GetComponentsInChildren<Transform>();
+
+        foreach (Transform child in children)
+        {
+            Debug.Log("Child: " + child);
+            if (child.CompareTag("Block_Piece"))
+            {
+                Renderer renderer = child.GetComponent<Renderer>();
+
+                if (renderer != null)
+                {
+                    rendererList.Add(renderer);
+                }
+            }
+        }
+
+        Debug.Log("Renderers: " + rendererList);
     }
 
     private void setAnimatorAndAnimation()
@@ -128,17 +153,24 @@ public class Block : MonoBehaviour
         boxCollider.enabled = false;
         hpText.SetText("");
 
+        /*
         if (rendSingle)
         {
             rendSingle.enabled = false;
         }
         else if (rendArray.Length > 0)
         {
-            // Disable only the actual parts 
+            // Disable only the actual parts
             for (int i = 0; i < 3; i++)
             {
                 rendArray[i].enabled = false;
             }
+        }
+        */
+
+        foreach (Renderer rend in rendererList)
+        {
+            rend.enabled = false;
         }
 
         sendBlockValue();
