@@ -87,8 +87,10 @@ public class LevelGenerator2 : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 Destroy(SpawnedObjects[i + hideOnRow]);
+                //SpawnedObjects.RemoveAt(i + hideOnRow);
+                Debug.Log("SpawnedObjects count: "+SpawnedObjects.Count);
             }
-
+            // TODO: Fix removing blocks
             hideOnRow += 5;
         }
     }

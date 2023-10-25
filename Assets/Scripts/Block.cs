@@ -66,7 +66,7 @@ public class Block : MonoBehaviour
 
         foreach (Transform child in children)
         {
-            Debug.Log("Child: " + child);
+            //Debug.Log("Child: " + child);
             if (child.CompareTag("Block_Piece"))
             {
                 Renderer renderer = child.GetComponent<Renderer>();
@@ -78,7 +78,7 @@ public class Block : MonoBehaviour
             }
         }
 
-        Debug.Log("Renderers: " + rendererList);
+        //Debug.Log("Renderers: " + rendererList);
     }
 
     private void setAnimatorAndAnimation()
@@ -91,8 +91,8 @@ public class Block : MonoBehaviour
         }
         else
         {
-            Debug.Log("Child object with Animator component not found");
-            Debug.Log("Child object with Animation not found");
+            //Debug.Log("Child object with Animator component not found");
+            //Debug.Log("Child object with Animation not found");
         }
     }
 
@@ -120,9 +120,9 @@ public class Block : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entered Block Trigger");
+        //Debug.Log("Entered Block Trigger");
         health--;
-        Debug.Log("HP-");
+        //Debug.Log("HP-");
         setHPText();
         if (health == 0)
         {
