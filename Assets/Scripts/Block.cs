@@ -12,10 +12,13 @@ public class Block : MonoBehaviour
     public int blockValue = 0;
     public TextMeshPro hpText;
     public TextMeshPro pointsText;
+    private Color startColor;
     private ParticleSystem particle;
     private Renderer[] rendArray;
     private Renderer rendSingle;
     private BoxCollider boxCollider;
+
+    private float fadeDuration = 0.6f;
 
     private Animator animator;
     private Animation anim;
@@ -124,7 +127,6 @@ public class Block : MonoBehaviour
         pointsText.SetText("+" + blockValue);
         animator.SetTrigger("PointsTrigger");
 
-
         particle.Play();
         boxCollider.enabled = false;
         hpText.SetText("");
@@ -136,7 +138,7 @@ public class Block : MonoBehaviour
         else if (rendArray.Length > 0)
         {
             // The last child was the particle system, which destroyed that too
-            for (int i = 0; i < rendArray.Length - 1; i++)
+            for (int i = 0; i < 2; i++)
             {
                 rendArray[i].enabled = false;
             }
