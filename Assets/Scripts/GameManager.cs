@@ -5,7 +5,7 @@ using UnityEngine.SocialPlatforms;
 
 public class GameManager : MonoBehaviour
 {
-    public float timeScale = 0.5f;
+    private float timeScale = 4.0f;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
             {
                 Time.timeScale = timeScale; // Slows down time.
             }
-            else
+            else if(Time.timeScale == timeScale)
             {
                 Time.timeScale = 1.0f; // Restores normal time.
             }
