@@ -88,9 +88,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.030561447
-  m_Height: 0.22437279
+  m_Height: 0.28871307
   m_Direction: 0
-  m_Center: {x: 0.0010695383, y: -0.72530246, z: 0}
+  m_Center: {x: 0.0019886643, y: -0.72530246, z: 0}
 --- !u!1 &8913443736655129264
 GameObject:
   m_ObjectHideFlags: 0

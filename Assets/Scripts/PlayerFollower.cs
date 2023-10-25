@@ -32,7 +32,7 @@ public class PlayerFollower : MonoBehaviour
             //Debug.Log("Player attached");
             // Get the player's position
 
-            float targetY = (player.transform.position.y * 0.8f) - 2f;
+            float targetY = (player.transform.position.y) - 2f;
 
             //float playerX = player.transform.position.x;
             //float playerZ = player.transform.position.z;

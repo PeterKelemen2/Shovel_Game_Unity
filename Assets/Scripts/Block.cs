@@ -12,13 +12,10 @@ public class Block : MonoBehaviour
     public int blockValue = 0;
     public TextMeshPro hpText;
     public TextMeshPro pointsText;
-    private Color startColor;
     private ParticleSystem particle;
     private Renderer[] rendArray;
     private Renderer rendSingle;
     private BoxCollider boxCollider;
-
-    private float fadeDuration = 0.6f;
 
     private Animator animator;
     private Animation anim;
