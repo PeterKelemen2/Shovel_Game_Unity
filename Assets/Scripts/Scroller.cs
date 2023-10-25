@@ -22,10 +22,9 @@ public class Scroller : MonoBehaviour
     {
         Vector2 currentOffset = rend.material.mainTextureOffset;
         float time = Time.deltaTime;
-        Vector2 newOffset = new Vector2(0*time, currentOffset.y + 0.1f * time);
+        Vector2 newOffset = new Vector2(0 * time, currentOffset.y + 0.1f * time);
 
         // Update the material's mainTextureOffset.
         rend.material.mainTextureOffset = newOffset;
-
     }
 }

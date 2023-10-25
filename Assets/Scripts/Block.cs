@@ -134,8 +134,8 @@ public class Block : MonoBehaviour
         }
         else if (rendArray.Length > 0)
         {
-            // The last child was the particle system, which destroyed that too
-            for (int i = 0; i < 2; i++)
+            // Disable only the actual parts 
+            for (int i = 0; i < 3; i++)
             {
                 rendArray[i].enabled = false;
             }

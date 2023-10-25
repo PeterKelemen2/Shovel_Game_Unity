@@ -29,13 +29,7 @@ public class PlayerFollower : MonoBehaviour
     {
         if (_isplayerNotNull)
         {
-            //Debug.Log("Player attached");
-            // Get the player's position
-
             float targetY = (player.transform.position.y) - 2f;
-
-            //float playerX = player.transform.position.x;
-            //float playerZ = player.transform.position.z;
 
             Vector3 targetPosition = new Vector3(0f, targetY, -6.5f);
 

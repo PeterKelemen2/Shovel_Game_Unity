@@ -12,6 +12,7 @@ TagManager:
   - Left
   - Right
   - PointsText
+  - Block_Bedrock
   layers:
   - Default
   - TransparentFX
