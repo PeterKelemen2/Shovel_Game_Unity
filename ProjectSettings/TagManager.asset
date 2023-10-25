@@ -11,6 +11,7 @@ TagManager:
   - TopCollider
   - Left
   - Right
+  - PointsText
   layers:
   - Default
   - TransparentFX

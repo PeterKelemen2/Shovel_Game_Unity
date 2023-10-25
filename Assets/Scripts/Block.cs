@@ -11,15 +11,20 @@ public class Block : MonoBehaviour
     [SerializeField] int health;
     public int blockValue = 0;
     public TextMeshPro hpText;
+    public TextMeshPro pointsText;
     private ParticleSystem particle;
     private Renderer[] rendArray;
     private Renderer rendSingle;
     private BoxCollider boxCollider;
 
+    private Animator animator;
+    private Animation anim;
+    //private static readonly int PlayAnimation = Animator.StringToHash("PlayAnimation");
+
 
     private void Awake()
     {
-        particle = GetComponentInChildren<ParticleSystem>();
+        //particle = GetComponentInChildren<ParticleSystem>();
         boxCollider = GetComponentInChildren<BoxCollider>();
     }
 
@@ -45,6 +50,36 @@ public class Block : MonoBehaviour
             default:
                 break;
         }
+
+        setParticles();
+        setAnimatorAndAnimation();
+        pointsText.SetText("");
+    }
+
+    private void setAnimatorAndAnimation()
+    {
+        Transform childWithAnimator = transform.Find("Points");
+        if (childWithAnimator != null)
+        {
+            animator = childWithAnimator.GetComponent<Animator>();
+            anim = GetComponentInChildren<Animation>();
+        }
+        else
+        {
+            Debug.Log("Child object with Animator component not found");
+            Debug.Log("Child object with Animation not found");
+        }
+    }
+
+    private void setParticles()
+    {
+        Transform childWithParticles = transform.Find("Particle System");
+        if (childWithParticles != null)
+        {
+            particle = childWithParticles.GetComponent<ParticleSystem>();
+        }
+
+        Debug.Log(particle);
     }
 
     void Update()
@@ -71,10 +106,6 @@ public class Block : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        //BlockManager.instance.registerBlock(this);
-    }
 
     // ReSharper disable Unity.PerformanceAnalysis
     private void sendBlockValue()
@@ -90,6 +121,10 @@ public class Block : MonoBehaviour
 
     private IEnumerator breakBlock()
     {
+        pointsText.SetText("+" + blockValue);
+        animator.SetTrigger("PointsTrigger");
+
+
         particle.Play();
         boxCollider.enabled = false;
         hpText.SetText("");
@@ -108,10 +143,10 @@ public class Block : MonoBehaviour
         }
 
         sendBlockValue();
-        yield return new WaitForSeconds(particle.main.startLifetime.constantMax);
 
+        //particle.main.startLifetime.constantMax
+        yield return new WaitForSeconds(0.7f);
+        pointsText.SetText("");
         gameObject.SetActive(false);
-
-        //Destroy(gameObject);
     }
 }

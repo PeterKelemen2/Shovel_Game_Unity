@@ -10,12 +10,11 @@ public class UIController : MonoBehaviour
     public GameObject player;
 
     private int score = 0;
-    private int maxScore = -1;
+
 
     void Start()
     {
         scoreText.SetText("Score: " + score);
-        // Find and access objects with ScriptA
     }
 
 
@@ -26,13 +25,7 @@ public class UIController : MonoBehaviour
     public void receiveBlockValue(int value)
     {
         score += value;
-        Debug.Log("Score = " + score);
+        // Debug.Log("Score = " + score);
         scoreText.SetText("Score: " + score);
-    }
-
-
-    public void calculateScoreTwo()
-    {
-        Debug.Log("Calculating...");
     }
 }
