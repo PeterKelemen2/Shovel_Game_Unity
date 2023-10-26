@@ -119,18 +119,14 @@ public class LevelGenerator2 : MonoBehaviour
     {
         foreach (GameObject blockObject in SpawnedObjects)
         {
-            Block blockScript = blockObject.GetComponent<Block>();
-            if (blockScript != null)
-            {
-                blockScript.receiveDamageTaken(shovelDMG);
-            }
+            // If run first time, all the blocks, else only the last 5
         }
     }
 
-    public void receiveDamageValueFromButton(int dmg)
+    public void receiveDamageValueFromUI(int dmg)
     {
         shovelDMG = dmg;
-        Debug.Log("Damage value received from Button script: " + shovelDMG);
+        Debug.Log("Damage value received from UI Controller: " + shovelDMG);
         setDamageTakenOfBlocks();
     }
 }

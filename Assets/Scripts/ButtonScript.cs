@@ -128,7 +128,7 @@ public class ButtonScript : MonoBehaviour
                     break;
             }
 
-            lg.receiveDamageValueFromButton(shovelDMG);
+            //lg.receiveDamageValueFromButton(shovelDMG);
             Debug.Log("Damage value sent from Button script: " + shovelDMG);
         }
     }

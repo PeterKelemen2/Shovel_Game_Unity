@@ -29,6 +29,7 @@ public class UIController : MonoBehaviour
 
 
     private int shovelCost;
+    public int currentDamage = 1;
 
     void Start()
     {
@@ -45,58 +46,108 @@ public class UIController : MonoBehaviour
     {
     }
 
+    private void setDamageOf(String shovelName)
+    {
+        switch (shovelName)
+        {
+            case "Button_Blue":
+                currentDamage = blueDMG;
+                break;
+            case "Button_Red":
+                currentDamage = redDMG;
+                break;
+            case "Button_Green":
+                currentDamage = greenDMG;
+                break;
+            case "Button_Yellow":
+                currentDamage = yellowDMG;
+                break;
+        }
+    }
 
-    private void buyShovel(ref bool shovelTypeOwned)
+    private int getShovelCostOf(String shovelName)
+    {
+        switch (shovelName)
+        {
+            case "Button_Blue":
+                return blueCost;
+                break;
+            case "Button_Red":
+                return redCost;
+                break;
+            case "Button_Green":
+                return blueCost;
+                break;
+            case "Button_Yellow":
+                return yellowCost;
+                break;
+            default:
+                return 0;
+        }
+    }
+
+    private void buyShovel(ref bool shovelTypeOwned, String shovelName)
     {
         if (!shovelTypeOwned)
         {
-            Debug.Log("Shovel type not owned. Buying...");
-            if (score > shovelCost)
+            Debug.Log(shovelName.Substring(7) + " shovel not owned. Attempting to buy...");
+            if (score > getShovelCostOf(shovelName))
             {
                 shovelTypeOwned = true;
-                score -= shovelCost;
-                ButtonScript button = FindObjectOfType<ButtonScript>();
-                if (button != null)
-                {
-                    button.sendDamageValueToLevelGenerator();
-                }
+                score -= getShovelCostOf(shovelName);
+                setBankText(score);
+                setDamageOf(shovelName);
+                sendDamageToLevelGenerator();
 
-                Debug.Log("Shovel type bought");
+                Debug.Log(shovelName.Substring(7) + " shovel bought");
             }
             else
             {
-                Debug.Log("Not enough money");
+                Debug.Log("Not enough money for " + shovelName.Substring(7) + " shovel");
             }
         }
         else
         {
-            Debug.Log("Shovel type already owned");
+            Debug.Log(shovelName.Substring(7) + " shovel already owned, setting its damage");
+            setDamageOf(shovelName);
+            sendDamageToLevelGenerator();
+            Debug.Log("Damage of " + currentDamage + " given to Level Generator");
+        }
+    }
+
+
+    public void sendDamageToLevelGenerator()
+    {
+        LevelGenerator2 lv = FindObjectOfType<LevelGenerator2>();
+        if (lv != null)
+        {
+            lv.receiveDamageValueFromUI(currentDamage);
         }
     }
 
     public void redClick()
     {
         Debug.Log("Red button clicked");
-        buyShovel(ref redOwned);
+        buyShovel(ref redOwned, "Button_Red");
         //receiveShovelCost(shovelCost);
     }
 
     public void blueClick()
     {
         Debug.Log("Blue button clicked");
-        buyShovel(ref blueOwned);
+        buyShovel(ref blueOwned, "Button_Blue");
     }
 
     public void yellowClick()
     {
         Debug.Log("Yellow button clicked");
-        buyShovel(ref yellowOwned);
+        buyShovel(ref yellowOwned, "Button_Yellow");
     }
 
     public void greenClick()
     {
         Debug.Log("Green button clicked");
-        buyShovel(ref greenOwned);
+        buyShovel(ref greenOwned, "Button_Green");
     }
 
     public void receiveBlockValue(int value)
