@@ -11,6 +11,7 @@ public class Block : MonoBehaviour
 {
     [SerializeField] int health;
     public int blockValue = 0;
+    public int damageTaken = 1;
     public TextMeshPro hpText;
     public TextMeshPro pointsText;
     private ParticleSystem particle;
@@ -36,18 +37,18 @@ public class Block : MonoBehaviour
         switch (gameObject.tag)
         {
             case "Dirt":
-                health = 1;
+                health = 2;
                 blockValue = 2;
                 setHPText();
                 //rendArray = GetComponentsInChildren<Renderer>();
-                Debug.Log("Dirt block found!");
+                //Debug.Log("Dirt block found!");
                 break;
             case "Stone":
-                health = 1;
+                health = 5;
                 blockValue = 5;
                 setHPText();
                 //rendSingle = GetComponentInChildren<Renderer>();
-                Debug.Log("Stone block found!");
+                //Debug.Log("Stone block found!");
                 break;
             default:
                 break;
@@ -104,7 +105,7 @@ public class Block : MonoBehaviour
             particle = childWithParticles.GetComponent<ParticleSystem>();
         }
 
-        Debug.Log(particle);
+        //Debug.Log(particle);
     }
 
     void Update()
@@ -121,10 +122,10 @@ public class Block : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         //Debug.Log("Entered Block Trigger");
-        health--;
+        health -= damageTaken;
         //Debug.Log("HP-");
         setHPText();
-        if (health == 0)
+        if (health <= 0)
         {
             //Destroy(gameObject);
             StartCoroutine(breakBlock());
@@ -179,5 +180,10 @@ public class Block : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         pointsText.SetText("");
         gameObject.SetActive(false);
+    }
+
+    public void receiveDamageTaken(int shovelDmg)
+    {
+        damageTaken = shovelDmg;
     }
 }

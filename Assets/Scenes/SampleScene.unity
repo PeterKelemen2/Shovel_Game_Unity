@@ -1344,6 +1344,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 739609819}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendShovelCost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 739609819}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendDamageValueToLevelGenerator
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &739609817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1397,6 +1421,12 @@ MonoBehaviour:
   buttonText: {fileID: 1831893242}
   costText: {fileID: 877346717}
   dmgText: {fileID: 71873943}
+  shovelCost: 0
+  shovelDMG: 0
+  blueOwned: 0
+  redOwned: 0
+  greenOwned: 0
+  yellowOwned: 0
 --- !u!1001 &752274797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1605,7 +1635,31 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1794974811}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: redClick
+        m_MethodName: blueClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 804262999}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendShovelCost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 804262999}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendDamageValueToLevelGenerator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1668,6 +1722,12 @@ MonoBehaviour:
   buttonText: {fileID: 1965201349}
   costText: {fileID: 1643503356}
   dmgText: {fileID: 618143935}
+  shovelCost: 0
+  shovelDMG: 0
+  blueOwned: 0
+  redOwned: 0
+  greenOwned: 0
+  yellowOwned: 0
 --- !u!1 &809373086 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5470505808752647103, guid: 83f6b05350e0ad3498f1debf245af3a2, type: 3}
@@ -1781,7 +1841,31 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1794974811}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: redClick
+        m_MethodName: greenClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 845579348}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendShovelCost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 845579348}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendDamageValueToLevelGenerator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1844,6 +1928,12 @@ MonoBehaviour:
   buttonText: {fileID: 1110682279}
   costText: {fileID: 497383339}
   dmgText: {fileID: 394066737}
+  shovelCost: 0
+  shovelDMG: 0
+  blueOwned: 0
+  redOwned: 0
+  greenOwned: 0
+  yellowOwned: 0
 --- !u!1 &877346715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,7 +2981,31 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1794974811}
         m_TargetAssemblyTypeName: UIController, Assembly-CSharp
-        m_MethodName: redClick
+        m_MethodName: yellowClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1366959863}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendShovelCost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1366959863}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: sendDamageValueToLevelGenerator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2954,6 +3068,12 @@ MonoBehaviour:
   buttonText: {fileID: 1011644700}
   costText: {fileID: 1002418167}
   dmgText: {fileID: 1229231076}
+  shovelCost: 0
+  shovelDMG: 0
+  blueOwned: 0
+  redOwned: 0
+  greenOwned: 0
+  yellowOwned: 0
 --- !u!1 &1399704535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9dcf3dce39386f41acc3de6b7ea0d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonList:
+  - {fileID: 0}
 --- !u!1 &1639198314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4227,3 +4349,4 @@ MonoBehaviour:
   - {fileID: 1788188444793158225, guid: ff414af71a7ec0749911f1b74c38e6a7, type: 3}
   shovel: {fileID: 3676282141701471210, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
   camera: {fileID: 963194225}
+  shovelDMG: 1

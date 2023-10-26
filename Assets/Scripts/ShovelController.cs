@@ -62,7 +62,7 @@ public class ShovelController : MonoBehaviour
         if (!other.gameObject.CompareTag("MainCamera"))
         {
             if (!_canTrigger) return;
-            Debug.Log("Collided");
+            //Debug.Log("Collided");
 
             _canTrigger = false;
             StartCoroutine(TriggerAfterDelay());

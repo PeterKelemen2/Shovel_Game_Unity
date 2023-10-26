@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public List<Button> buttonList = new List<Button>();
     void Start()
     {
         

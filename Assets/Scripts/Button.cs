@@ -19,8 +19,14 @@ public class Button : MonoBehaviour
     private int redCost = 2000;
     private int greenCost = 3000;
     private int yellorCost = 4000;
-    
-    
+
+    public int shovelCost = 0;
+    public int shovelDMG = 0;
+
+    public bool blueOwned = false;
+    public bool redOwned = false;
+    public bool greenOwned = false;
+    public bool yellowOwned = false;
     
     void Start()
     {
@@ -30,22 +36,59 @@ public class Button : MonoBehaviour
                 buttonText.SetText("Blue Shovel");
                 costText.SetText(blueCost + "$");
                 dmgText.SetText(blueDMG + " DMG");
+                shovelCost = blueCost;
+                shovelDMG = blueDMG;
                 break;
             case "Button_Red":
                 buttonText.SetText("Red Shovel");
                 costText.SetText(redCost + "$");
                 dmgText.SetText(redDMG + " DMG");
+                shovelCost = redCost;
+                shovelDMG = redDMG;
                 break;
             case "Button_Green":
                 buttonText.SetText("Green Shovel");
                 costText.SetText(greenCost + "$");
                 dmgText.SetText(greenDMG + " DMG");
+                shovelCost = greenCost;
+                shovelDMG = greenDMG;
                 break;
             case "Button_Yellow":
                 buttonText.SetText("Yellow Shovel");
                 costText.SetText(yellorCost + "$");
                 dmgText.SetText(yellowDMG + " DMG");
+                shovelCost = yellorCost;
+                shovelDMG = yellowDMG;
                 break;
+        }
+    }
+    
+    public void sendShovelCost()
+    {
+        UIController uiController = FindObjectOfType<UIController>();
+        if (uiController != null)
+        {
+            uiController.receiveShovelCost(shovelCost);
+            Debug.Log("Shovel cost value sent from button: " + shovelCost);
+        }
+    }
+
+    public void sendDamageTaken()
+    {
+        Block block = FindObjectOfType<Block>();
+        if (block != null)
+        {
+            block.receiveDamageTaken(shovelDMG);
+        }
+    }
+
+    public void sendDamageValueToLevelGenerator()
+    {
+        LevelGenerator2 lg = FindObjectOfType<LevelGenerator2>();
+        if (lg != null)
+        {
+            lg.receiveDamageValueFromButton(shovelDMG);
+            Debug.Log("Damage value sent from Button script: " + shovelDMG);
         }
     }
 

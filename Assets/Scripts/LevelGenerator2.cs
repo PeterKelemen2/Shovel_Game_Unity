@@ -15,7 +15,7 @@ public class LevelGenerator2 : MonoBehaviour
     private float cameraY;
     private List<GameObject> SpawnedObjects = new List<GameObject>();
     private int lastItemIndex;
-
+    public int shovelDMG = 1;
 
     /*
      Blocks are spawned apart from each other by '1'
@@ -33,7 +33,7 @@ public class LevelGenerator2 : MonoBehaviour
     int pickBlock()
     {
         var rnd = Random.Range(0, blocks.Length);
-        Debug.Log("Picked block with ID=" + rnd);
+        //Debug.Log("Picked block with ID=" + rnd);
         return rnd;
     }
 
@@ -50,7 +50,7 @@ public class LevelGenerator2 : MonoBehaviour
     }
 
 
-    // ReSharper disable Unity.PerformanceAnalysis
+    
     private void placeBlock(float x, float y)
     {
         GameObject blockObject = Instantiate(blocks[pickBlock()],
@@ -68,7 +68,7 @@ public class LevelGenerator2 : MonoBehaviour
             placeBlock(startSpawnX + i, startSpawnY);
         }
 
-        Debug.Log("SP Count after generating top layer: " + SpawnedObjects.Count);
+        //Debug.Log("SP Count after generating top layer: " + SpawnedObjects.Count);
     }
 
     // camera Y = 1
@@ -87,7 +87,7 @@ public class LevelGenerator2 : MonoBehaviour
                 placeBlock(startSpawnX + i, startSpawnY);
             }
 
-            Debug.Log("SP Count after spawning a row: " + SpawnedObjects.Count);
+            //Debug.Log("SP Count after spawning a row: " + SpawnedObjects.Count);
         }
 
         if (Math.Abs(cameraY) - Math.Abs(SpawnedObjects[hideOnRow].transform.position.y) > 6f)
@@ -112,6 +112,25 @@ public class LevelGenerator2 : MonoBehaviour
             Destroy(SpawnedObjects[0]);
             SpawnedObjects.RemoveAt(0);
         }
-        Debug.Log("Removed first unseen row");
+        //Debug.Log("Removed first unseen row");
+    }
+
+    public void setDamageTakenOfBlocks()
+    {
+        foreach (GameObject blockObject in SpawnedObjects)
+        {
+            Block blockScript = blockObject.GetComponent<Block>();
+            if (blockScript != null)
+            {
+                blockScript.receiveDamageTaken(shovelDMG);
+            }
+        }
+    }
+
+    public void receiveDamageValueFromButton(int dmg)
+    {
+        shovelDMG = dmg;
+        Debug.Log("Damage value received from Button script: " + shovelDMG);
+        setDamageTakenOfBlocks();
     }
 }
