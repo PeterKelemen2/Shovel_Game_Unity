@@ -71,16 +71,12 @@ public class UIController : MonoBehaviour
         {
             case "Button_Blue":
                 return blueCost;
-                break;
             case "Button_Red":
                 return redCost;
-                break;
             case "Button_Green":
                 return blueCost;
-                break;
             case "Button_Yellow":
                 return yellowCost;
-                break;
             default:
                 return 0;
         }
@@ -91,7 +87,7 @@ public class UIController : MonoBehaviour
         if (!shovelTypeOwned)
         {
             Debug.Log(shovelName.Substring(7) + " shovel not owned. Attempting to buy...");
-            if (score > getShovelCostOf(shovelName))
+            if (score >= getShovelCostOf(shovelName))
             {
                 shovelTypeOwned = true;
                 score -= getShovelCostOf(shovelName);
@@ -118,10 +114,10 @@ public class UIController : MonoBehaviour
 
     public void sendDamageToLevelGenerator()
     {
-        LevelGenerator2 lv = FindObjectOfType<LevelGenerator2>();
-        if (lv != null)
+        LevelGenerator2 lg = FindObjectOfType<LevelGenerator2>();
+        if (lg != null)
         {
-            lv.receiveDamageValueFromUI(currentDamage);
+            lg.receiveDamageValueFromUI(currentDamage);
         }
     }
 

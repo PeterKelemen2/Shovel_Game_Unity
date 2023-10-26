@@ -56,6 +56,12 @@ public class LevelGenerator2 : MonoBehaviour
         GameObject blockObject = Instantiate(blocks[pickBlock()],
             new Vector3(x, y, 0f),
             Quaternion.identity);
+        
+        Block blockScript = blockObject.GetComponent<Block>();
+        if (blockScript != null)
+        {
+            blockScript.receiveDamageTaken(shovelDMG);
+        }
         SpawnedObjects.Add(blockObject.gameObject);
         //Debug.Log("SP count after adding to it: " + SpawnedObjects.Count);
         lastItemIndex = SpawnedObjects.Count - 1;
@@ -119,7 +125,11 @@ public class LevelGenerator2 : MonoBehaviour
     {
         foreach (GameObject blockObject in SpawnedObjects)
         {
-            // If run first time, all the blocks, else only the last 5
+            Block blockScript = blockObject.GetComponent<Block>();
+            if (blockScript != null)
+            {
+                blockScript.receiveDamageTaken(shovelDMG);
+            }
         }
     }
 
