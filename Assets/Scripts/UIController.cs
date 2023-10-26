@@ -10,12 +10,22 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI bankText;
     public List<Button> buttonList = new();
     private int score = 0;
-     
+
 
     private bool blueOwned = false;
     private bool redOwned = false;
     private bool greenOwned = false;
     private bool yellowOwned = false;
+
+    private int blueDMG = 1;
+    private int redDMG = 2;
+    private int greenDMG = 3;
+    private int yellowDMG = 4;
+
+    private int blueCost = 10;
+    private int redCost = 10;
+    private int greenCost = 10;
+    private int yellowCost = 4000;
 
 
     private int shovelCost;
@@ -50,6 +60,7 @@ public class UIController : MonoBehaviour
                 {
                     button.sendDamageValueToLevelGenerator();
                 }
+
                 Debug.Log("Shovel type bought");
             }
             else
