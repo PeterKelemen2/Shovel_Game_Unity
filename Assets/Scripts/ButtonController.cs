@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-    public List<Button> buttonList = new List<Button>();
+    public List<ButtonScript> buttonList = new List<ButtonScript>();
     void Start()
     {
         

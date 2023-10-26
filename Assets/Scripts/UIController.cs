@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public TextMeshProUGUI bankText;
-    public List<Button> buttonList = new List<Button>();
+    public List<Button> buttonList = new();
     private int score = 0;
+     
 
     private bool blueOwned = false;
     private bool redOwned = false;
@@ -43,7 +44,12 @@ public class UIController : MonoBehaviour
             if (score > shovelCost)
             {
                 shovelTypeOwned = true;
-                //score -= shovelCost;
+                score -= shovelCost;
+                ButtonScript button = FindObjectOfType<ButtonScript>();
+                if (button != null)
+                {
+                    button.sendDamageValueToLevelGenerator();
+                }
                 Debug.Log("Shovel type bought");
             }
             else
@@ -60,7 +66,6 @@ public class UIController : MonoBehaviour
     public void redClick()
     {
         Debug.Log("Red button clicked");
-        
         buyShovel(ref redOwned);
         //receiveShovelCost(shovelCost);
     }
