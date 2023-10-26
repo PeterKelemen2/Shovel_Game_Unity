@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI bankText;
     public List<Button> buttonList = new List<Button>();
     private int score = 0;
 
@@ -15,10 +15,15 @@ public class UIController : MonoBehaviour
     
     void Start()
     {
-        scoreText.SetText("Score: " + score);
+        setBankText(score);
     }
 
-
+    private void setBankText(int score)
+    {
+        bankText.SetText("Bank: " + score + "$");
+    }
+    
+    
     void Update()
     {
     }
@@ -48,6 +53,6 @@ public class UIController : MonoBehaviour
     {
         score += value;
         // Debug.Log("Score = " + score);
-        scoreText.SetText("Score: " + score);
+        setBankText(score);
     }
 }

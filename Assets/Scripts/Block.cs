@@ -146,7 +146,7 @@ public class Block : MonoBehaviour
 
     private IEnumerator breakBlock()
     {
-        pointsText.SetText("+" + blockValue);
+        pointsText.SetText("+" + blockValue + "$");
         animator.SetTrigger("PointsTrigger");
 
         particle.Play();
