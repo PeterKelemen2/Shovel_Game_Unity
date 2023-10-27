@@ -9,13 +9,17 @@ public class UIController : MonoBehaviour
 {
     public TextMeshProUGUI bankText;
     public List<Button> buttonList = new();
+    private RawImage[] rawImages;
+    private RawImage tickImage;
     private int score = 0;
 
+    private Color equipedColor = new Color(0.66f, 1f, 0.6f);
+    private Color notOwnedColor = new Color(0.63f, 0.63f, 0.63f);
 
-    private bool blueOwned = false;
-    private bool redOwned = false;
-    private bool greenOwned = false;
-    private bool yellowOwned = false;
+    public bool blueOwned = false;
+    public bool redOwned = false;
+    public bool greenOwned = false;
+    public bool yellowOwned = false;
 
     private int blueDMG = 1;
     private int redDMG = 2;
@@ -30,10 +34,37 @@ public class UIController : MonoBehaviour
 
     private int shovelCost;
     public int currentDamage = 1;
+    public String currentShovel;
+
+    private Dictionary<String, bool> shovelDictionary = new();
+
+    private void setUpDictionary()
+    {
+        shovelDictionary["Button_Blue"] = blueOwned;
+        shovelDictionary["Button_Red"] = redOwned;
+        shovelDictionary["Button_Green"] = greenOwned;
+        shovelDictionary["Button_Yellow"] = yellowOwned;
+    }
 
     void Start()
     {
+        setUpDictionary();
+        
         setBankText(score);
+        setAllButtonTextColorToGray();
+        foreach (Button button in buttonList)
+        {
+            rawImages = button.GetComponentsInChildren<RawImage>();
+            foreach (RawImage image in rawImages)
+            {
+                if (image.CompareTag("Tick"))
+                {
+                    tickImage = image;
+                }
+            }
+
+            tickImage.enabled = false;
+        }
     }
 
     private void setBankText(int score)
@@ -44,6 +75,50 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
+    }
+
+    private void setAllButtonTextColorToGray()
+    {
+        TextMeshProUGUI[] texts;
+        foreach (Button button in buttonList)
+        {
+            texts = button.GetComponentsInChildren<TextMeshProUGUI>();
+            foreach (TextMeshProUGUI text in texts)
+            {
+                text.color = notOwnedColor;
+            }
+        }
+    }
+
+    private void showEquiped()
+    {
+        foreach (Button button in buttonList)
+        {
+            // Contains every text object in a button
+            var texts = button.GetComponentsInChildren<TextMeshProUGUI>();
+
+            if (button.CompareTag(currentShovel))
+            {
+                foreach (var text in texts)
+                {
+                    if (text.CompareTag("ShovelTitle"))
+                    {
+                        text.color = equipedColor;
+                    }
+                    else
+                    {
+                        text.color = Color.white;
+                    }
+                }
+            }
+            else if (shovelDictionary.ContainsKey(button.tag) && shovelDictionary[button.tag])
+            {
+                foreach (var text in texts)
+                {
+                    text.color = Color.white;
+                }
+            }
+        }
     }
 
     private void setDamageOf(String shovelName)
@@ -90,11 +165,13 @@ public class UIController : MonoBehaviour
             if (score >= getShovelCostOf(shovelName))
             {
                 shovelTypeOwned = true;
+                shovelDictionary[shovelName] = true;
                 score -= getShovelCostOf(shovelName);
                 setBankText(score);
                 setDamageOf(shovelName);
                 sendDamageToLevelGenerator();
-
+                currentShovel = shovelName;
+                showEquiped();
                 Debug.Log(shovelName.Substring(7) + " shovel bought");
             }
             else
@@ -104,9 +181,11 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            Debug.Log(shovelName.Substring(7) + " shovel already owned, setting its damage");
+            Debug.Log(shovelName.Substring(7) + " shovel already owned, equiping");
             setDamageOf(shovelName);
             sendDamageToLevelGenerator();
+            currentShovel = shovelName;
+            showEquiped();
             Debug.Log("Damage of " + currentDamage + " given to Level Generator");
         }
     }
@@ -149,7 +228,6 @@ public class UIController : MonoBehaviour
     public void receiveBlockValue(int value)
     {
         score += value;
-        // Debug.Log("Score = " + score);
         setBankText(score);
     }
 

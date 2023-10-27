@@ -50,18 +50,18 @@ public class LevelGenerator2 : MonoBehaviour
     }
 
 
-    
     private void placeBlock(float x, float y)
     {
         GameObject blockObject = Instantiate(blocks[pickBlock()],
             new Vector3(x, y, 0f),
             Quaternion.identity);
-        
+
         Block blockScript = blockObject.GetComponent<Block>();
         if (blockScript != null)
         {
             blockScript.receiveDamageTaken(shovelDMG);
         }
+
         SpawnedObjects.Add(blockObject.gameObject);
         //Debug.Log("SP count after adding to it: " + SpawnedObjects.Count);
         lastItemIndex = SpawnedObjects.Count - 1;
@@ -77,14 +77,11 @@ public class LevelGenerator2 : MonoBehaviour
         //Debug.Log("SP Count after generating top layer: " + SpawnedObjects.Count);
     }
 
-    // camera Y = 1
-    // last block Y = -2
-    //
     // ReSharper disable Unity.PerformanceAnalysis
     private void generateLevel()
     {
         cameraY = camera.transform.position.y;
-        if (Math.Abs(SpawnedObjects[SpawnedObjects.Count - 1].transform.position.y) - 
+        if (Math.Abs(SpawnedObjects[SpawnedObjects.Count - 1].transform.position.y) -
             Math.Abs(cameraY) < 4f)
         {
             startSpawnY--;
@@ -92,21 +89,11 @@ public class LevelGenerator2 : MonoBehaviour
             {
                 placeBlock(startSpawnX + i, startSpawnY);
             }
-
             //Debug.Log("SP Count after spawning a row: " + SpawnedObjects.Count);
         }
 
         if (Math.Abs(cameraY) - Math.Abs(SpawnedObjects[hideOnRow].transform.position.y) > 6f)
         {
-            // for (int i = 0; i < 5; i++)
-            // {
-            //     Destroy(SpawnedObjects[i]); // + hideOnRow
-            //     SpawnedObjects.RemoveAt(i); // + hideOnRow
-            // }
-            //
-            // Debug.Log("SpawnedObjects count after removal: " + SpawnedObjects.Count);
-            //
-            // //hideOnRow += 5;
             destroyFirstRow();
         }
     }

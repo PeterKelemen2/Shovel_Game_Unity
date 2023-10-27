@@ -34,6 +34,7 @@ public class ButtonScript : MonoBehaviour
     public bool greenOwned = false;
     public bool yellowOwned = false;
 
+    private TextMeshProUGUI[] texts;
     void Start()
     {
         lg = FindObjectOfType<LevelGenerator2>();
@@ -71,6 +72,7 @@ public class ButtonScript : MonoBehaviour
                 // shovelDMG = yellowDMG;
                 break;
         }
+        
     }
 
     public void sendShovelCost()

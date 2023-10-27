@@ -18,6 +18,8 @@ TagManager:
   - Button_Red
   - Button_Green
   - Button_Yellow
+  - Tick
+  - ShovelTitle
   layers:
   - Default
   - TransparentFX
