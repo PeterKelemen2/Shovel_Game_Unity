@@ -13,13 +13,40 @@ public class ShovelController : MonoBehaviour
     private float moveSpeed = 7f;
     private float horizontalInput;
     private Rigidbody rb;
+    public List<Material> materialList = new();
 
+    private Dictionary<String, Material> materialDictionary = new();
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
+        setUpMaterialDict();
+
+        Renderer rend = GetComponentInChildren<Renderer>();
+        if (rend != null)
+        {
+            rend.materials[1] = materialList[2];
+            foreach (var mat in materialList)
+            {
+                Debug.Log("List material: " + mat);
+            }
+
+            foreach (var mat in rend.materials)
+            {
+                Debug.Log("Prefab material: " + mat);
+            }
+        }
+    }
+
+    private void setUpMaterialDict()
+    {
+        materialDictionary["Blue"] = materialList[0];
+        materialDictionary["Red"] = materialList[1];
+        materialDictionary["Green"] = materialList[2];
+        materialDictionary["Yellow"] = materialList[3];
     }
 
     void FixedUpdate()
@@ -71,7 +98,6 @@ public class ShovelController : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
             rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
         }
-        
     }
 
     private void MovePlayer()

@@ -1546,6 +1546,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3145388198002499508, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
+      propertyPath: materialList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3145388198002499508, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
+      propertyPath: materialList.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51c17955fb61ac849a352d83d0d96c40, type: 2}
+    - target: {fileID: 3145388198002499508, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
+      propertyPath: materialList.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9b1776484d091104f93d78100432f87c, type: 2}
+    - target: {fileID: 3145388198002499508, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
+      propertyPath: materialList.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7e3a52b92ed646e4a81ca8c833a6dce1, type: 2}
+    - target: {fileID: 3145388198002499508, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
+      propertyPath: materialList.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d93e94afbee7a34aaabd8c221bb52e8, type: 2}
     - target: {fileID: 3676282141701471210, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
       propertyPath: m_Name
       value: Shovel
