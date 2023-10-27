@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class PlayerFollower : MonoBehaviour
 {
     public GameObject player; // Reference to the player's Transform
+    private GameObject toFollow;
     public GameObject background;
     private float smoothSpeed = 2f; // Adjust the smoothness of the camera follow
     private bool _isplayerNotNull;
@@ -18,7 +20,13 @@ public class PlayerFollower : MonoBehaviour
 
     void Start()
     {
-        _isplayerNotNull = player != null;
+        toFollow = Instantiate(player,
+            new Vector3(0f, 4f, 0f),
+            Quaternion.identity);
+
+        toFollow.AddComponent<ShovelController>();
+
+        _isplayerNotNull = toFollow != null;
         rend = background.GetComponent<Renderer>();
         var material = rend.material;
         material.mainTextureScale = uvScale;
@@ -29,7 +37,7 @@ public class PlayerFollower : MonoBehaviour
     {
         if (_isplayerNotNull)
         {
-            float targetY = (player.transform.position.y) - 2f;
+            float targetY = (toFollow.transform.position.y) - 2f;
 
             Vector3 targetPosition = new Vector3(0f, targetY, -6.5f);
 

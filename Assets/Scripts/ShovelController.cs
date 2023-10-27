@@ -9,44 +9,50 @@ using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class ShovelController : MonoBehaviour
 {
+    //public GameObject prefab;
+
     private float upForce = 5f;
     private float moveSpeed = 7f;
     private float horizontalInput;
     private Rigidbody rb;
-    public List<Material> materialList = new();
+    // public List<Material> materialList = new();
 
     private Dictionary<String, Material> materialDictionary = new();
 
+    // public GameObject prefab;
+    // private GameObject instantiatedObject;
+
     void Start()
     {
+        //gameObject.SetActive(false);
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
         setUpMaterialDict();
 
-        Renderer rend = GetComponentInChildren<Renderer>();
-        if (rend != null)
-        {
-            rend.materials[1] = materialList[2];
-            foreach (var mat in materialList)
-            {
-                Debug.Log("List material: " + mat);
-            }
+        MeshRenderer rend = GetComponentInChildren<MeshRenderer>();
+        var materialsCopy = rend.materials;
+        materialsCopy[1] = Resources.Load<Material>("Shovel_Red");
+        rend.materials = materialsCopy;
+        
+        // TODO: Implementing this
+        
+        // Debug.Log("Initial material: " + rend.materials[1]);
+        // //rend.materials[1] = materialDictionary["Red"];
+        // Debug.Log("Material red from dictionary: " + materialDictionary["Red"]);
+        // rend.materials[1] = Resources.Load<Material>("Shovel_Red");
+        // Debug.Log("Changed to: " + rend.materials[1]);
 
-            foreach (var mat in rend.materials)
-            {
-                Debug.Log("Prefab material: " + mat);
-            }
-        }
+        
     }
 
     private void setUpMaterialDict()
     {
-        materialDictionary["Blue"] = materialList[0];
-        materialDictionary["Red"] = materialList[1];
-        materialDictionary["Green"] = materialList[2];
-        materialDictionary["Yellow"] = materialList[3];
+        materialDictionary["Blue"] = Resources.Load<Material>("Shovel_Blue");
+        materialDictionary["Red"] = Resources.Load<Material>("Shovel_Red");
+        materialDictionary["Green"] = Resources.Load<Material>("Shovel_Green");
+        materialDictionary["Yellow"] = Resources.Load<Material>("Shovel_Yellow");
     }
 
     void FixedUpdate()

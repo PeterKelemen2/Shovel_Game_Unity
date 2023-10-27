@@ -9,13 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4057487687207756112}
-  - component: {fileID: 3145388198002499508}
   - component: {fileID: 1147032437063604601}
   - component: {fileID: 1348844025197680780}
   - component: {fileID: 5666903973779875131}
   m_Layer: 0
   m_Name: Shovel
-  m_TagString: Untagged
+  m_TagString: Shovel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,19 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &3145388198002499508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676282141701471210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbb6cf47fd242c64eb0858e15e0be2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  materialList: []
 --- !u!54 &1147032437063604601
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -102,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5673428149709045599}
   - component: {fileID: 6539343227064129636}
-  - component: {fileID: 2581109023648591386}
+  - component: {fileID: 873637864942462225}
   m_Layer: 0
   m_Name: Cylinder_3
   m_TagString: Shovel
@@ -133,7 +119,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8913443736655129264}
   m_Mesh: {fileID: 1856150034111365774, guid: 250ded902dcca754fa5f356ca002661f, type: 3}
---- !u!23 &2581109023648591386
+--- !u!23 &873637864942462225
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +139,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6281898678796022283, guid: 250ded902dcca754fa5f356ca002661f, type: 3}
+  - {fileID: 2100000, guid: 1e78ae16cdb481a479bec90f3430965b, type: 2}
   - {fileID: 2100000, guid: 51c17955fb61ac849a352d83d0d96c40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

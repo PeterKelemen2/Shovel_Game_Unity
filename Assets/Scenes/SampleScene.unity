@@ -1044,6 +1044,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3676282141701471210, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
   m_PrefabInstance: {fileID: 767570390}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &533681000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533680994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb6cf47fd242c64eb0858e15e0be2ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &618143933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shovel
       objectReference: {fileID: 0}
+    - target: {fileID: 3676282141701471210, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4057487687207756112, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1612,6 +1628,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4057487687207756112, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8548204055886611665, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2202,7 +2222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9562fcb4a4d558a45a9932566e1023a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 533680994}
+  player: {fileID: 3676282141701471210, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
   background: {fileID: 514240100}
   uvOffset: {x: 1, y: 1}
   uvScale: {x: 10, y: 10}
