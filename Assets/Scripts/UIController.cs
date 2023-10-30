@@ -37,6 +37,7 @@ public class UIController : MonoBehaviour
     public String currentShovel;
 
     private Dictionary<String, bool> shovelDictionary = new();
+    private Dictionary<string, string> nameDictionary = new();
 
     private void setUpDictionary()
     {
@@ -44,12 +45,17 @@ public class UIController : MonoBehaviour
         shovelDictionary["Button_Red"] = redOwned;
         shovelDictionary["Button_Green"] = greenOwned;
         shovelDictionary["Button_Yellow"] = yellowOwned;
+
+        nameDictionary["Button_Blue"] = "Blue";
+        nameDictionary["Button_Red"] = "Red";
+        nameDictionary["Button_Green"] = "Green";
+        nameDictionary["Button_Yellow"] = "Yellow";
     }
 
     void Start()
     {
         setUpDictionary();
-        
+
         setBankText(score);
         setAllButtonTextColorToGray();
         foreach (Button button in buttonList)
@@ -97,6 +103,7 @@ public class UIController : MonoBehaviour
             // Contains every text object in a button
             var texts = button.GetComponentsInChildren<TextMeshProUGUI>();
 
+            ShovelController sc = FindObjectOfType<ShovelController>();
             if (button.CompareTag(currentShovel))
             {
                 foreach (var text in texts)
@@ -110,6 +117,8 @@ public class UIController : MonoBehaviour
                         text.color = Color.white;
                     }
                 }
+
+                sc.setShovelMaterial(nameDictionary[button.tag]);
             }
             else if (shovelDictionary.ContainsKey(button.tag) && shovelDictionary[button.tag])
             {

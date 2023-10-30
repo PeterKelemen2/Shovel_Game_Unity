@@ -31,20 +31,39 @@ public class ShovelController : MonoBehaviour
 
         setUpMaterialDict();
 
-        MeshRenderer rend = GetComponentInChildren<MeshRenderer>();
-        var materialsCopy = rend.materials;
-        materialsCopy[1] = Resources.Load<Material>("Shovel_Red");
-        rend.materials = materialsCopy;
-        
+
         // TODO: Implementing this
-        
+
         // Debug.Log("Initial material: " + rend.materials[1]);
         // //rend.materials[1] = materialDictionary["Red"];
         // Debug.Log("Material red from dictionary: " + materialDictionary["Red"]);
         // rend.materials[1] = Resources.Load<Material>("Shovel_Red");
         // Debug.Log("Changed to: " + rend.materials[1]);
+    }
 
-        
+    public void setShovelMaterial(String material)
+    {
+        MeshRenderer rend = GetComponentInChildren<MeshRenderer>();
+        var materialsCopy = rend.materials;
+        switch (material)
+        {
+            case "Red":
+                materialsCopy[1] = materialDictionary["Red"];
+                break;
+            case "Blue":
+                materialsCopy[1] = materialDictionary["Blue"];
+                break;
+            case "Green":
+                materialsCopy[1] = materialDictionary["Green"];
+                break;
+            case "Yellow":
+                materialsCopy[1] = materialDictionary["Yellow"];
+                break;
+            default:
+                break;
+        }
+
+        rend.materials = materialsCopy;
     }
 
     private void setUpMaterialDict()
