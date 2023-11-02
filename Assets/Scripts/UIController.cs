@@ -20,7 +20,9 @@ public class UIController : MonoBehaviour
 
     public GameObject pausePanel;
     private bool isPaused = false;
+    public TextMeshProUGUI pauseText;
     public GameObject resumeButton;
+    public TextMeshProUGUI timeOverText;
 
     private Color equipedColor = new Color(0.66f, 1f, 0.6f);
     private Color notOwnedColor = new Color(0.63f, 0.63f, 0.63f);
@@ -65,6 +67,8 @@ public class UIController : MonoBehaviour
     {
         pausePanel.SetActive(false);
         resumeButton.SetActive(false);
+        pauseText.enabled = false;
+        timeOverText.enabled = false;
         timeLeft = 5;
         StartCoroutine(startCountown());
         setUpDictionary();
@@ -93,7 +97,7 @@ public class UIController : MonoBehaviour
 
     private void setTimeText(int arg)
     {
-        timeText.SetText("Time left: " + arg + " s");
+        timeText.SetText("Time left: " + arg + "s");
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -114,6 +118,7 @@ public class UIController : MonoBehaviour
             ShovelController sc = FindObjectOfType<ShovelController>();
             sc.setPlayingStatus(false);
             Debug.Log("Time has run out");
+            timeOverText.enabled = true;
             pausePanel.SetActive(true);
         }
     }
@@ -139,6 +144,7 @@ public class UIController : MonoBehaviour
         Time.timeScale = 0f;
         pausePanel.SetActive(true);
         resumeButton.SetActive(true);
+        pauseText.enabled = true;
         isPaused = true;
         
     }
@@ -148,6 +154,7 @@ public class UIController : MonoBehaviour
         Time.timeScale = 1f;
         pausePanel.SetActive(false);
         resumeButton.SetActive(false);
+        pauseText.enabled = false;
         isPaused = false;
     }
 
