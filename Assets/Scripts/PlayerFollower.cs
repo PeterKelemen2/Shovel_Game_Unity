@@ -12,6 +12,7 @@ public class PlayerFollower : MonoBehaviour
     public GameObject background;
     private float smoothSpeed = 2f; // Adjust the smoothness of the camera follow
     private bool _isplayerNotNull;
+    
 
     [SerializeField] public Vector2 uvOffset = new Vector2(0f, 2f);
     [SerializeField] public Vector2 uvScale = new Vector2(10f, 10f);

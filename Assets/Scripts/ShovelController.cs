@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEditor;
 // using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
+using Vector3 = UnityEngine.Vector3;
 
 public class ShovelController : MonoBehaviour
 {
     //public GameObject prefab;
-
+    private bool isPlaying = true;
     private float upForce = 5f;
     private float moveSpeed = 7f;
     private float horizontalInput;
@@ -24,21 +26,11 @@ public class ShovelController : MonoBehaviour
 
     void Start()
     {
-        //gameObject.SetActive(false);
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
         setUpMaterialDict();
-
-
-        // TODO: Implementing this
-
-        // Debug.Log("Initial material: " + rend.materials[1]);
-        // //rend.materials[1] = materialDictionary["Red"];
-        // Debug.Log("Material red from dictionary: " + materialDictionary["Red"]);
-        // rend.materials[1] = Resources.Load<Material>("Shovel_Red");
-        // Debug.Log("Changed to: " + rend.materials[1]);
     }
 
     public void setShovelMaterial(String material)
@@ -83,28 +75,6 @@ public class ShovelController : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        /*
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Vector3 oldVelocity = rb.velocity;
-            rb.velocity = (Vector2)new Vector3(1 * moveSpeed, oldVelocity.y, oldVelocity.z);
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Vector3 oldVelocity = rb.velocity;
-            rb.velocity = (Vector2)new Vector3(-1 * moveSpeed, oldVelocity.y, oldVelocity.z);
-        }
-
-        */
-        if (Input.GetKey(KeyCode.A))
-        {
-            //transform.Translate(Vector3.left * (moveSpeed * Time.deltaTime));
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            // transform.Translate(Vector3.right * (moveSpeed * Time.deltaTime));
-        }
     }
 
     private bool _canTrigger = true;
@@ -121,25 +91,49 @@ public class ShovelController : MonoBehaviour
 
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+            if (isPlaying)
+            {
+                rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+            }
+        }
+    }
+
+    public void setPlayingStatus(bool status)
+    {
+        if (!status)
+        {
+            isPlaying = false;
+        }
+        else
+        {
+            isPlaying = true;
         }
     }
 
     private void MovePlayer()
     {
-        var moveDirection = new Vector3(horizontalInput, 0, 0);
-
-        if (!Physics.Raycast(transform.position, moveDirection, out _, 0.2f))
+        if (isPlaying)
         {
-            // If no obstacles are in the way, move the object.
-            var velocity = rb.velocity;
-            velocity = new Vector3(moveDirection.x * moveSpeed,
-                velocity.y, velocity.z);
-            rb.velocity = velocity;
+            var moveDirection = new Vector3(horizontalInput, 0, 0);
+
+            if (!Physics.Raycast(transform.position, moveDirection, out _, 0.2f))
+            {
+                // If no obstacles are in the way, move the object.
+                var velocity = rb.velocity;
+                velocity = new Vector3(moveDirection.x * moveSpeed,
+                    velocity.y, velocity.z);
+                rb.velocity = velocity;
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
+            }
         }
         else
         {
             rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
         }
     }
 

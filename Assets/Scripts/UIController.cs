@@ -4,14 +4,23 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class UIController : MonoBehaviour
 {
     public TextMeshProUGUI bankText;
+    public TextMeshProUGUI timeText;
+    private int timeLeft;
+    private bool isCountingDown = true;
     public List<Button> buttonList = new();
     private RawImage[] rawImages;
     private RawImage tickImage;
     private int score = 0;
+
+    public GameObject pausePanel;
+    private bool isPaused = false;
+    public GameObject resumeButton;
 
     private Color equipedColor = new Color(0.66f, 1f, 0.6f);
     private Color notOwnedColor = new Color(0.63f, 0.63f, 0.63f);
@@ -54,6 +63,10 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
+        pausePanel.SetActive(false);
+        resumeButton.SetActive(false);
+        timeLeft = 5;
+        StartCoroutine(startCountown());
         setUpDictionary();
 
         setBankText(score);
@@ -78,9 +91,69 @@ public class UIController : MonoBehaviour
         bankText.SetText("Bank: " + score + "$");
     }
 
+    private void setTimeText(int arg)
+    {
+        timeText.SetText("Time left: " + arg + " s");
+    }
+
+    // ReSharper disable Unity.PerformanceAnalysis
+    private IEnumerator startCountown()
+    {
+        while (timeLeft > 0)
+        {
+            isCountingDown = true;
+            timeLeft--;
+            setTimeText(timeLeft);
+            yield return new WaitForSeconds(1);
+        }
+
+        if (timeLeft == 0)
+        {
+            isCountingDown = false;
+            setTimeText(0);
+            ShovelController sc = FindObjectOfType<ShovelController>();
+            sc.setPlayingStatus(false);
+            Debug.Log("Time has run out");
+            pausePanel.SetActive(true);
+        }
+    }
+
+
+    private void togglePauseMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isCountingDown)
+        {
+            if (isPaused)
+            {
+                resumeGame();
+            }
+            else
+            {
+                pauseGame();
+            }
+        }
+    }
+
+    private void pauseGame()
+    {
+        Time.timeScale = 0f;
+        pausePanel.SetActive(true);
+        resumeButton.SetActive(true);
+        isPaused = true;
+        
+    }
+
+    public void resumeGame()
+    {
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
+        resumeButton.SetActive(false);
+        isPaused = false;
+    }
 
     void Update()
     {
+        togglePauseMenu();
     }
 
     private void setAllButtonTextColorToGray()
@@ -148,6 +221,7 @@ public class UIController : MonoBehaviour
                 break;
         }
     }
+
 
     private int getShovelCostOf(String shovelName)
     {
