@@ -7,6 +7,7 @@ using UnityEditor;
 // using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static UnityEngine.UIElements.UxmlAttributeDescription;
+using Random = System.Random;
 using Vector3 = UnityEngine.Vector3;
 
 public class ShovelController : MonoBehaviour
@@ -24,8 +25,15 @@ public class ShovelController : MonoBehaviour
     // public GameObject prefab;
     // private GameObject instantiatedObject;
 
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioClips["Jump1"] = Resources.Load<AudioClip>("Audio/DM-CGS-21");
+        audioClips["Jump2"] = Resources.Load<AudioClip>("Audio/DM-CGS-32");
+
         rb = GetComponent<Rigidbody>();
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -94,9 +102,44 @@ public class ShovelController : MonoBehaviour
             if (isPlaying)
             {
                 rb.AddForce(Vector3.up * upForce, ForceMode.Impulse);
+                playJumpSound();
             }
         }
     }
+
+    private void playJumpSound()
+    {
+        System.Random rnd = new System.Random();
+        int randomNumber = rnd.Next();
+        bool myBool = false;
+        if (randomNumber % 2 == 0)
+        {
+            myBool = true;
+        }
+        else
+        {
+            myBool = false;
+        }
+
+        switch (myBool)
+        {
+            case true:
+                playSound("Jump1");
+                break;
+            case false:
+                playSound("Jump2");
+                break;
+        }
+    }
+
+    public void playSound(String sound)
+    {
+        audioSource.clip = audioClips[sound];
+        audioSource.Play();
+    }
+
+    private Dictionary<String, AudioClip> audioClips = new();
+
 
     public void setPlayingStatus(bool status)
     {
@@ -109,6 +152,7 @@ public class ShovelController : MonoBehaviour
             isPlaying = true;
         }
     }
+
 
     private void MovePlayer()
     {

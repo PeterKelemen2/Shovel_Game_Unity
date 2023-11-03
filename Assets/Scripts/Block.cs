@@ -117,6 +117,14 @@ public class Block : MonoBehaviour
         pointsText.SetText("+" + blockValue + "$");
         animator.Play("Anim");
 
+        LevelGenerator2 lg = FindObjectOfType<LevelGenerator2>();
+        lg.playBreakSound();
+        // gameObject.AddComponent<AudioSource>();
+        // AudioSource audioSource = GetComponent<AudioSource>();
+        // AudioClip popSound = Resources.Load<AudioClip>("Audio/DM-CGS-45");
+        // audioSource.clip = popSound;
+        // audioSource.Play();
+
         particle.Play();
         boxCollider.enabled = false;
         hpText.SetText("");

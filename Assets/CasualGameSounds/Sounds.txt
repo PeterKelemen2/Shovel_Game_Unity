@@ -1,0 +1,6 @@
+28 - picking shovel
+34 - can't select
+21 - jump
+32 - jump
+18 - completion
+45 - break block

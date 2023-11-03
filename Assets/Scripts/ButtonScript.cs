@@ -35,6 +35,7 @@ public class ButtonScript : MonoBehaviour
     public bool yellowOwned = false;
 
     private TextMeshProUGUI[] texts;
+
     void Start()
     {
         lg = FindObjectOfType<LevelGenerator2>();
@@ -72,7 +73,6 @@ public class ButtonScript : MonoBehaviour
                 // shovelDMG = yellowDMG;
                 break;
         }
-        
     }
 
     public void sendShovelCost()
@@ -101,14 +101,25 @@ public class ButtonScript : MonoBehaviour
         }
     }
 
-    // public void sendDamageTaken()
-    // {
-    //     Block block = FindObjectOfType<Block>();
-    //     if (block != null)
-    //     {
-    //         block.receiveDamageTaken(shovelDMG);
-    //     }
-    // }
+    public int setBlueCost()
+    {
+        return blueCost;
+    }
+
+    public int setRedCost()
+    {
+        return redCost;
+    }
+
+    public int setGreenCost()
+    {
+        return greenCost;
+    }
+
+    public int setYellowCost()
+    {
+        return yellowCost;
+    }
 
     public void sendDamageValueToLevelGenerator()
     {

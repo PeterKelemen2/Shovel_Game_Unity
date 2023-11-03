@@ -13,8 +13,11 @@ public class LevelGenerator2 : MonoBehaviour
     public GameObject shovel;
     public GameObject camera;
     private float cameraY;
-    private List<GameObject> SpawnedObjects = new List<GameObject>();
+    private List<GameObject> SpawnedObjects = new();
     public int shovelDMG = 1;
+
+    private AudioSource audioSource;
+    private AudioClip popSound;
 
     /*
      Blocks are spawned apart from each other by '1'
@@ -27,6 +30,12 @@ public class LevelGenerator2 : MonoBehaviour
     private int hideOnRow = 0;
 
 
+    public void playBreakSound()
+    {
+        audioSource.clip = popSound;
+        audioSource.Play();
+    }
+
     // ReSharper disable Unity.PerformanceAnalysis
     int pickBlock()
     {
@@ -36,6 +45,10 @@ public class LevelGenerator2 : MonoBehaviour
 
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 0.4f;
+        popSound = Resources.Load<AudioClip>("Audio/DM-CGS-45");
+        
         cameraY = camera.transform.position.y;
         generateTopLayer();
     }
@@ -68,7 +81,6 @@ public class LevelGenerator2 : MonoBehaviour
         {
             placeBlock(startSpawnX + i, startSpawnY);
         }
-        
     }
 
     // ReSharper disable Unity.PerformanceAnalysis

@@ -47,6 +47,7 @@ public class UIController : MonoBehaviour
     private int greenCost;
     private int yellowCost;
 
+    private AudioSource audioSource = new();
 
     private int shovelCost;
     public int currentDamage = 1;
@@ -54,6 +55,16 @@ public class UIController : MonoBehaviour
 
     private Dictionary<String, bool> shovelDictionary = new();
     private Dictionary<string, string> nameDictionary = new();
+    private Dictionary<String, AudioClip> audioClips = new();
+
+
+    private void setShovelCost()
+    {
+        blueCost = FindObjectOfType<ButtonScript>().setBlueCost();
+        redCost = FindObjectOfType<ButtonScript>().setRedCost();
+        greenCost = FindObjectOfType<ButtonScript>().setGreenCost();
+        yellowCost = FindObjectOfType<ButtonScript>().setYellowCost();
+    }
 
     private void setUpDictionary()
     {
@@ -66,6 +77,12 @@ public class UIController : MonoBehaviour
         nameDictionary["Button_Red"] = "Red";
         nameDictionary["Button_Green"] = "Green";
         nameDictionary["Button_Yellow"] = "Yellow";
+
+        audioClips["Select"] = Resources.Load<AudioClip>("Audio/DM-CGS-28");
+        audioClips["Failed"] = Resources.Load<AudioClip>("Audio/DM-CGS-34");
+        audioClips["Jump1"] = Resources.Load<AudioClip>("Audio/DM-CGS-21");
+        audioClips["Jump2"] = Resources.Load<AudioClip>("Audio/DM-CGS-32");
+        audioClips["Complete"] = Resources.Load<AudioClip>("Audio/DM-CGS-18");
     }
 
     public void reloadPlayScene()
@@ -75,6 +92,8 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        setShovelCost();
         pausePanel.GetComponent<FadePausePanel>().setResumeColor(0.0f);
         resumeButton.SetActive(false);
         playAgainButton.SetActive(false);
@@ -84,9 +103,9 @@ public class UIController : MonoBehaviour
         StartCoroutine(startCountownFrom(timeLeft + 1));
 
         setUpDictionary();
-
         setBankText(score);
         setAllButtonTextColorToGray();
+
         foreach (Button button in buttonList)
         {
             rawImages = button.GetComponentsInChildren<RawImage>();
@@ -133,6 +152,7 @@ public class UIController : MonoBehaviour
             Debug.Log("Time has run out");
             timeOverText.enabled = true;
             playAgainButton.SetActive(true);
+            playSound("Complete");
         }
     }
 
@@ -191,6 +211,7 @@ public class UIController : MonoBehaviour
             }
         }
     }
+
 
     private void showEquiped()
     {
@@ -279,10 +300,13 @@ public class UIController : MonoBehaviour
                 currentShovel = shovelName;
                 showEquiped();
                 Debug.Log(shovelName.Substring(7) + " shovel bought");
+
+                playSound("Select");
             }
             else
             {
                 Debug.Log("Not enough money for " + shovelName.Substring(7) + " shovel");
+                playSound("Failed");
             }
         }
         else
@@ -293,9 +317,17 @@ public class UIController : MonoBehaviour
             currentShovel = shovelName;
             showEquiped();
             Debug.Log("Damage of " + currentDamage + " given to Level Generator");
+
+            playSound("Select");
         }
     }
 
+
+    public void playSound(String sound)
+    {
+        audioSource.clip = audioClips[sound];
+        audioSource.Play();
+    }
 
     public void sendDamageToLevelGenerator()
     {
