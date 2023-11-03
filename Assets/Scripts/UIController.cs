@@ -146,7 +146,7 @@ public class UIController : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator startCountownFrom(int timeLeft)
     {
-        while (timeLeft > 0)
+        while (timeLeft > 1)
         {
             isCountingDown = true;
             timeLeft--;
@@ -154,7 +154,7 @@ public class UIController : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
-        if (timeLeft == 0)
+        if (timeLeft == 1)
         {
             isCountingDown = false;
             setTimeText(0);
@@ -165,6 +165,7 @@ public class UIController : MonoBehaviour
             timeOverText.enabled = true;
             playAgainButton.SetActive(true);
             playSound("Complete");
+            yield return null;
         }
     }
 

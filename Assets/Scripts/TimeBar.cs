@@ -35,7 +35,7 @@ public class TimeBar : MonoBehaviour
 
     public void setDuration(float dur)
     {
-        duration = dur+1;
+        duration = dur;
     }
 
 
