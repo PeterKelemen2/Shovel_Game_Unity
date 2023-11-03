@@ -81,7 +81,7 @@ public class UIController : MonoBehaviour
         playAgainButton.SetActive(false);
         pauseText.enabled = false;
         timeOverText.enabled = false;
-        timeLeft = 5;
+        timeLeft = 10;
         StartCoroutine(startCountownFrom(timeLeft + 1));
 
 

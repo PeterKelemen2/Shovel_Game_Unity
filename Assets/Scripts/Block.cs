@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.Playables;
 
 public class Block : MonoBehaviour
 {
@@ -22,7 +23,6 @@ public class Block : MonoBehaviour
 
     private Animator animator;
     private Animation anim;
-    //private static readonly int PlayAnimation = Animator.StringToHash("PlayAnimation");
 
 
     private void Awake()
@@ -81,14 +81,8 @@ public class Block : MonoBehaviour
 
     private void setAnimatorAndAnimation()
     {
-        Transform childWithAnimator = transform.Find("Points");
-        if (childWithAnimator != null)
-        {
-            animator = childWithAnimator.GetComponent<Animator>();
-            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
-            // TODO: Sort out animation not playing issue
-            anim = GetComponentInChildren<Animation>();
-        }
+        animator = GetComponentInChildren<Animator>();
+        Debug.Log(animator);
     }
 
     private void setParticles()
@@ -137,10 +131,12 @@ public class Block : MonoBehaviour
     }
 
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator breakBlock()
     {
         pointsText.SetText("+" + blockValue + "$");
         animator.SetTrigger("PointsTrigger");
+        
 
         particle.Play();
         boxCollider.enabled = false;

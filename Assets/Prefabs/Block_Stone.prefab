@@ -52,6 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   blockValue: 0
+  damageTaken: 1
   hpText: {fileID: 4140440729507273585}
   pointsText: {fileID: 3183969270620490256}
 --- !u!54 &6472739708034306747
@@ -5220,7 +5221,7 @@ Animator:
   m_GameObject: {fileID: 8634499162671789916}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c4a30c4e4ac936d4b9be5401dbac37db, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8c3825c267ca7549b1296a86235f27e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

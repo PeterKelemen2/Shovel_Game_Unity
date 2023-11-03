@@ -5050,14 +5050,13 @@ GameObject:
   - component: {fileID: 8879887480281413982}
   - component: {fileID: 8057818283554192903}
   - component: {fileID: 4750390770698338326}
-  - component: {fileID: 1037300376582491701}
-  - component: {fileID: 6150100152844183740}
+  - component: {fileID: 6698802219512392818}
   m_Layer: 0
   m_Name: Points
   m_TagString: PointsText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &8879887480281413982
 RectTransform:
@@ -5213,23 +5212,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 8057818283554192903}
   m_maskType: 0
---- !u!111 &1037300376582491701
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2759121257292702438}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 0a996cc8e9df35f4896d9a919a62b1fb, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 0a996cc8e9df35f4896d9a919a62b1fb, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!95 &6150100152844183740
+--- !u!95 &6698802219512392818
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -5239,9 +5222,9 @@ Animator:
   m_GameObject: {fileID: 2759121257292702438}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c4a30c4e4ac936d4b9be5401dbac37db, type: 2}
+  m_Controller: {fileID: 9100000, guid: d8c3825c267ca7549b1296a86235f27e, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
