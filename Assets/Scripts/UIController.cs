@@ -28,6 +28,8 @@ public class UIController : MonoBehaviour
     public GameObject playAgainButton;
     public TextMeshProUGUI timeOverText;
 
+    private Animator timeLeftAnimator;
+    
 
     private Color equipedColor = new Color(0.66f, 1f, 0.6f);
     private Color notOwnedColor = new Color(0.63f, 0.63f, 0.63f);
@@ -97,13 +99,15 @@ public class UIController : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.volume = 1f;
         setShovelCost();
         pausePanel.GetComponent<FadePausePanel>().setResumeColor(0.0f);
         resumeButton.SetActive(false);
         playAgainButton.SetActive(false);
         pauseText.enabled = false;
         timeOverText.enabled = false;
-
+        timeLeftAnimator = GetComponentInChildren<Animator>();
+        
         int timeLeft = 5;
         FindObjectOfType<TimeBar>().setDuration(timeLeft);
         
@@ -162,8 +166,10 @@ public class UIController : MonoBehaviour
             sc.setPlayingStatus(false);
             pausePanel.GetComponent<FadePausePanel>().setPauseColor();
             Debug.Log("Time has run out");
+            timeLeftAnimator.Play("TimeLeftAnimation");
             timeOverText.enabled = true;
             playAgainButton.SetActive(true);
+            audioSource.volume = 0.4f;
             playSound("Complete");
             yield return null;
         }
