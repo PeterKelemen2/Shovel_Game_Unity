@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1147032437063604601}
   - component: {fileID: 1348844025197680780}
   - component: {fileID: 5666903973779875131}
+  - component: {fileID: 7734828675380122215}
+  - component: {fileID: 8915385426040409783}
   m_Layer: 0
   m_Name: Shovel
   m_TagString: Shovel
@@ -78,6 +80,43 @@ CapsuleCollider:
   m_Height: 0.28871307
   m_Direction: 0
   m_Center: {x: 0.0019886643, y: -0.72530246, z: 0}
+--- !u!111 &7734828675380122215
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676282141701471210}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 143d20f5b7830b848a7fe4c0b5b2f463, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 143d20f5b7830b848a7fe4c0b5b2f463, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &8915385426040409783
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3676282141701471210}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfe7ba90e92f22d438eb04e10f749376, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8913443736655129264
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,10 +42,10 @@ public class UIController : MonoBehaviour
     private int greenDMG = 3;
     private int yellowDMG = 4;
 
-    private int blueCost = 10;
-    private int redCost = 20;
-    private int greenCost = 30;
-    private int yellowCost = 40;
+    private int blueCost;
+    private int redCost;
+    private int greenCost;
+    private int yellowCost;
 
 
     private int shovelCost;
@@ -75,14 +75,14 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        //pausePanel.SetActive(false);
+        //Time.timeScale = 1f;
         pausePanel.GetComponent<FadePausePanel>().setResumeColor(0.0f);
         resumeButton.SetActive(false);
         playAgainButton.SetActive(false);
         pauseText.enabled = false;
         timeOverText.enabled = false;
-        timeLeft = 60;
-        StartCoroutine(startCountownFrom(timeLeft+1));
+        timeLeft = 5;
+        StartCoroutine(startCountownFrom(timeLeft + 1));
 
 
         setUpDictionary();
@@ -131,9 +131,7 @@ public class UIController : MonoBehaviour
             setTimeText(0);
             ShovelController sc = FindObjectOfType<ShovelController>();
             sc.setPlayingStatus(false);
-            //pausePanel.SetActive(true);
             pausePanel.GetComponent<FadePausePanel>().setPauseColor();
-            //FindObjectOfType<FadePausePanel>().setGameOverStatus(true);
             Debug.Log("Time has run out");
             timeOverText.enabled = true;
             playAgainButton.SetActive(true);

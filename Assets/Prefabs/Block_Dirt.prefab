@@ -99,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8337378268839948890
 Transform:
@@ -5007,6 +5007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   blockValue: 0
+  damageTaken: 1
   hpText: {fileID: 2623120870484900938}
   pointsText: {fileID: 4750390770698338326}
 --- !u!54 &2705273815476425252

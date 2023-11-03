@@ -67,7 +67,6 @@ public class Block : MonoBehaviour
 
         foreach (Transform child in children)
         {
-            //Debug.Log("Child: " + child);
             if (child.CompareTag("Block_Piece"))
             {
                 Renderer renderer = child.GetComponent<Renderer>();
@@ -78,8 +77,6 @@ public class Block : MonoBehaviour
                 }
             }
         }
-
-        //Debug.Log("Renderers: " + rendererList);
     }
 
     private void setAnimatorAndAnimation()
@@ -88,12 +85,9 @@ public class Block : MonoBehaviour
         if (childWithAnimator != null)
         {
             animator = childWithAnimator.GetComponent<Animator>();
+            animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            // TODO: Sort out animation not playing issue
             anim = GetComponentInChildren<Animation>();
-        }
-        else
-        {
-            //Debug.Log("Child object with Animator component not found");
-            //Debug.Log("Child object with Animation not found");
         }
     }
 
@@ -104,8 +98,6 @@ public class Block : MonoBehaviour
         {
             particle = childWithParticles.GetComponent<ParticleSystem>();
         }
-
-        //Debug.Log(particle);
     }
 
     void Update()
@@ -153,21 +145,6 @@ public class Block : MonoBehaviour
         particle.Play();
         boxCollider.enabled = false;
         hpText.SetText("");
-
-        /*
-        if (rendSingle)
-        {
-            rendSingle.enabled = false;
-        }
-        else if (rendArray.Length > 0)
-        {
-            // Disable only the actual parts
-            for (int i = 0; i < 3; i++)
-            {
-                rendArray[i].enabled = false;
-            }
-        }
-        */
 
         foreach (Renderer rend in rendererList)
         {

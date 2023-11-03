@@ -22,9 +22,9 @@ public class ButtonScript : MonoBehaviour
     private int yellowDMG = 4;
 
     private int blueCost = 10;
-    private int redCost = 10;
-    private int greenCost = 10;
-    private int yellowCost = 4000;
+    private int redCost = 20;
+    private int greenCost = 30;
+    private int yellowCost = 40;
 
     public int shovelCost = 0;
     public int shovelDMG = 0;
