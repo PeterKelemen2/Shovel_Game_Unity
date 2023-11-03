@@ -75,15 +75,13 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        //Time.timeScale = 1f;
         pausePanel.GetComponent<FadePausePanel>().setResumeColor(0.0f);
         resumeButton.SetActive(false);
         playAgainButton.SetActive(false);
         pauseText.enabled = false;
         timeOverText.enabled = false;
-        timeLeft = 10;
+        timeLeft = 1000;
         StartCoroutine(startCountownFrom(timeLeft + 1));
-
 
         setUpDictionary();
 

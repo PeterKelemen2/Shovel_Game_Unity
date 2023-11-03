@@ -14,7 +14,6 @@ public class LevelGenerator2 : MonoBehaviour
     public GameObject camera;
     private float cameraY;
     private List<GameObject> SpawnedObjects = new List<GameObject>();
-    private int lastItemIndex;
     public int shovelDMG = 1;
 
     /*
@@ -26,14 +25,12 @@ public class LevelGenerator2 : MonoBehaviour
     private int startSpawnY = 0;
 
     private int hideOnRow = 0;
-    //private int spawnOffsetX = 0;
-    //private int spawnOffsetY = 0;
+
 
     // ReSharper disable Unity.PerformanceAnalysis
     int pickBlock()
     {
         var rnd = Random.Range(0, blocks.Length);
-        //Debug.Log("Picked block with ID=" + rnd);
         return rnd;
     }
 
@@ -63,8 +60,6 @@ public class LevelGenerator2 : MonoBehaviour
         }
 
         SpawnedObjects.Add(blockObject.gameObject);
-        //Debug.Log("SP count after adding to it: " + SpawnedObjects.Count);
-        lastItemIndex = SpawnedObjects.Count - 1;
     }
 
     private void generateTopLayer()
@@ -73,8 +68,7 @@ public class LevelGenerator2 : MonoBehaviour
         {
             placeBlock(startSpawnX + i, startSpawnY);
         }
-
-        //Debug.Log("SP Count after generating top layer: " + SpawnedObjects.Count);
+        
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -89,7 +83,6 @@ public class LevelGenerator2 : MonoBehaviour
             {
                 placeBlock(startSpawnX + i, startSpawnY);
             }
-            //Debug.Log("SP Count after spawning a row: " + SpawnedObjects.Count);
         }
 
         if (Math.Abs(cameraY) - Math.Abs(SpawnedObjects[hideOnRow].transform.position.y) > 6f)
@@ -105,7 +98,6 @@ public class LevelGenerator2 : MonoBehaviour
             Destroy(SpawnedObjects[0]);
             SpawnedObjects.RemoveAt(0);
         }
-        //Debug.Log("Removed first unseen row");
     }
 
     public void setDamageTakenOfBlocks()

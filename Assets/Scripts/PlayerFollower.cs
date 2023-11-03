@@ -51,7 +51,6 @@ public class PlayerFollower : MonoBehaviour
 
             // Set the camera's position to match the player's position with the Z-axis offset
             transform.position = smoothedPosition;
-            // Debug.Log("Camera moved to" + targetPosition);
         }
     }
 }

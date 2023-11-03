@@ -27,7 +27,6 @@ public class Block : MonoBehaviour
 
     private void Awake()
     {
-        //particle = GetComponentInChildren<ParticleSystem>();
         boxCollider = GetComponentInChildren<BoxCollider>();
     }
 
@@ -40,15 +39,11 @@ public class Block : MonoBehaviour
                 health = 2;
                 blockValue = 2;
                 setHPText();
-                //rendArray = GetComponentsInChildren<Renderer>();
-                //Debug.Log("Dirt block found!");
                 break;
             case "Stone":
                 health = 5;
                 blockValue = 5;
                 setHPText();
-                //rendSingle = GetComponentInChildren<Renderer>();
-                //Debug.Log("Stone block found!");
                 break;
             default:
                 break;
@@ -56,7 +51,7 @@ public class Block : MonoBehaviour
 
         setRenderer();
         setParticles();
-        setAnimatorAndAnimation();
+        animator = GetComponentInChildren<Animator>();
         pointsText.SetText("");
     }
 
@@ -79,11 +74,6 @@ public class Block : MonoBehaviour
         }
     }
 
-    private void setAnimatorAndAnimation()
-    {
-        animator = GetComponentInChildren<Animator>();
-        Debug.Log(animator);
-    }
 
     private void setParticles()
     {
@@ -94,26 +84,17 @@ public class Block : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-    }
-
-
     private void setHPText()
     {
         hpText.SetText("HP: " + health.ToString());
     }
 
-
     public void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("Entered Block Trigger");
         health -= damageTaken;
-        //Debug.Log("HP-");
         setHPText();
         if (health <= 0)
         {
-            //Destroy(gameObject);
             StartCoroutine(breakBlock());
         }
     }
@@ -122,7 +103,6 @@ public class Block : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void sendBlockValue()
     {
-        //BlockManager.instance.SendDisableSignal();
         UIController uiController = FindObjectOfType<UIController>();
         if (uiController != null)
         {
@@ -135,7 +115,6 @@ public class Block : MonoBehaviour
     private IEnumerator breakBlock()
     {
         pointsText.SetText("+" + blockValue + "$");
-        //animator.SetTrigger("PointsTrigger");
         animator.Play("Anim");
 
         particle.Play();
@@ -149,7 +128,6 @@ public class Block : MonoBehaviour
 
         sendBlockValue();
 
-        //particle.main.startLifetime.constantMax
         yield return new WaitForSeconds(0.7f);
         pointsText.SetText("");
         gameObject.SetActive(false);
