@@ -135,8 +135,8 @@ public class Block : MonoBehaviour
     private IEnumerator breakBlock()
     {
         pointsText.SetText("+" + blockValue + "$");
-        animator.SetTrigger("PointsTrigger");
-        
+        //animator.SetTrigger("PointsTrigger");
+        animator.Play("Anim");
 
         particle.Play();
         boxCollider.enabled = false;
