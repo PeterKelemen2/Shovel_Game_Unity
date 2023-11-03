@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UIElements.Image;
 
 public class UIController : MonoBehaviour
 {
@@ -22,7 +25,9 @@ public class UIController : MonoBehaviour
     private bool isPaused = false;
     public TextMeshProUGUI pauseText;
     public GameObject resumeButton;
+    public GameObject playAgainButton;
     public TextMeshProUGUI timeOverText;
+
 
     private Color equipedColor = new Color(0.66f, 1f, 0.6f);
     private Color notOwnedColor = new Color(0.63f, 0.63f, 0.63f);
@@ -38,9 +43,9 @@ public class UIController : MonoBehaviour
     private int yellowDMG = 4;
 
     private int blueCost = 10;
-    private int redCost = 10;
-    private int greenCost = 10;
-    private int yellowCost = 4000;
+    private int redCost = 20;
+    private int greenCost = 30;
+    private int yellowCost = 40;
 
 
     private int shovelCost;
@@ -63,14 +68,23 @@ public class UIController : MonoBehaviour
         nameDictionary["Button_Yellow"] = "Yellow";
     }
 
+    public void reloadPlayScene()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
     void Start()
     {
-        pausePanel.SetActive(false);
+        //pausePanel.SetActive(false);
+        pausePanel.GetComponent<FadePausePanel>().setResumeColor(0.0f);
         resumeButton.SetActive(false);
+        playAgainButton.SetActive(false);
         pauseText.enabled = false;
         timeOverText.enabled = false;
-        timeLeft = 5;
-        StartCoroutine(startCountown());
+        timeLeft = 60;
+        StartCoroutine(startCountownFrom(timeLeft+1));
+
+
         setUpDictionary();
 
         setBankText(score);
@@ -101,7 +115,7 @@ public class UIController : MonoBehaviour
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    private IEnumerator startCountown()
+    private IEnumerator startCountownFrom(int timeLeft)
     {
         while (timeLeft > 0)
         {
@@ -117,9 +131,12 @@ public class UIController : MonoBehaviour
             setTimeText(0);
             ShovelController sc = FindObjectOfType<ShovelController>();
             sc.setPlayingStatus(false);
+            //pausePanel.SetActive(true);
+            pausePanel.GetComponent<FadePausePanel>().setPauseColor();
+            //FindObjectOfType<FadePausePanel>().setGameOverStatus(true);
             Debug.Log("Time has run out");
             timeOverText.enabled = true;
-            pausePanel.SetActive(true);
+            playAgainButton.SetActive(true);
         }
     }
 
@@ -139,23 +156,26 @@ public class UIController : MonoBehaviour
         }
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     private void pauseGame()
     {
-        Time.timeScale = 0f;
-        pausePanel.SetActive(true);
+        isPaused = true;
+        //pausePanel.SetActive(true);
         resumeButton.SetActive(true);
         pauseText.enabled = true;
-        isPaused = true;
-        
+        pausePanel.GetComponent<FadePausePanel>().setPauseColor();
+        Time.timeScale = 0f;
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void resumeGame()
     {
         Time.timeScale = 1f;
-        pausePanel.SetActive(false);
+        isPaused = false;
+        //pausePanel.SetActive(false);
         resumeButton.SetActive(false);
         pauseText.enabled = false;
-        isPaused = false;
+        pausePanel.GetComponent<FadePausePanel>().setResumeColor();
     }
 
     void Update()
