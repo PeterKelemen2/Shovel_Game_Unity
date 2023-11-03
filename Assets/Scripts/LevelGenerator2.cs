@@ -48,7 +48,7 @@ public class LevelGenerator2 : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.volume = 0.4f;
         popSound = Resources.Load<AudioClip>("Audio/DM-CGS-45");
-        
+
         cameraY = camera.transform.position.y;
         generateTopLayer();
     }

@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
 {
     public TextMeshProUGUI bankText;
     public TextMeshProUGUI timeText;
-    private int timeLeft;
+    private int timeLeft = 12;
     private bool isCountingDown = true;
     public List<Button> buttonList = new();
     private RawImage[] rawImages;
@@ -57,7 +57,11 @@ public class UIController : MonoBehaviour
     private Dictionary<string, string> nameDictionary = new();
     private Dictionary<String, AudioClip> audioClips = new();
 
-
+    public void sendDurationToTimeBar()
+    {
+        //FindObjectOfType<TimeBar>().setDuration(timeLeft);
+    }
+    
     private void setShovelCost()
     {
         blueCost = FindObjectOfType<ButtonScript>().setBlueCost();
@@ -99,7 +103,10 @@ public class UIController : MonoBehaviour
         playAgainButton.SetActive(false);
         pauseText.enabled = false;
         timeOverText.enabled = false;
-        timeLeft = 1000;
+
+        int timeLeft = 5;
+        FindObjectOfType<TimeBar>().setDuration(timeLeft);
+        
         StartCoroutine(startCountownFrom(timeLeft + 1));
 
         setUpDictionary();
@@ -121,6 +128,11 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public float getDuration()
+    {
+        return timeLeft;
+    }
+    
     private void setBankText(int score)
     {
         bankText.SetText("Bank: " + score + "$");
