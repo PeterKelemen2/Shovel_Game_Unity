@@ -10,15 +10,15 @@ public class TimeBar : MonoBehaviour
     private float startTime;
     private bool isCounting = false;
 
-    private Vector3 initialScale = new Vector3(0f, 1f, 1f);
-    private Vector3 targetScale = new Vector3(1f, 1f, 1f);
+    private Vector3 initialScale = new Vector3(0f, 0.775f, 1f);
+    private Vector3 targetScale = new Vector3(0.9829f, 0.775f, 1f);
 
     private RectTransform imageTransform;
 
     void Start()
     {
         //FindObjectOfType<UIController>().sendDurationToTimeBar();
-
+        
         imageTransform = GetComponent<RectTransform>();
         imageTransform.localScale = initialScale;
         startTime = Time.time;
