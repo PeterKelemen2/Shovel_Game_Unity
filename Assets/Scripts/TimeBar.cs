@@ -8,6 +8,7 @@ public class TimeBar : MonoBehaviour
 {
     public float duration;
     private float startTime;
+    private bool isCounting = false;
 
     private Vector3 initialScale = new Vector3(0f, 1f, 1f);
     private Vector3 targetScale = new Vector3(1f, 1f, 1f);
@@ -27,8 +28,9 @@ public class TimeBar : MonoBehaviour
 
     private void Update()
     {
-        if (duration != 0)
+        if (duration != 0 && !isCounting)
         {
+            isCounting = true;
             StartCoroutine(ScaleBar());
         }
     }
