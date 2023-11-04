@@ -27,4 +27,9 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
 }

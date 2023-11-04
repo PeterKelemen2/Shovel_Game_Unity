@@ -26,6 +26,8 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI pauseText;
     public GameObject resumeButton;
     public GameObject playAgainButton;
+    public GameObject quitButton;
+    public GameObject restartButton;
     public TextMeshProUGUI timeOverText;
 
     private Animator timeLeftAnimator;
@@ -98,12 +100,15 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.volume = 1f;
         setShovelCost();
         pausePanel.GetComponent<FadePausePanel>().setResumeColor(0.0f);
         resumeButton.SetActive(false);
-        playAgainButton.SetActive(false);
+        playAgainButton.SetActive(false); // Stage complete screen
+        restartButton.SetActive(false); // This button is for the pause menu
+        quitButton.SetActive(false);
         pauseText.enabled = false;
         timeOverText.enabled = false;
         timeLeftAnimator = GetComponentInChildren<Animator>();
@@ -197,6 +202,8 @@ public class UIController : MonoBehaviour
         isPaused = true;
         //pausePanel.SetActive(true);
         resumeButton.SetActive(true);
+        quitButton.SetActive(true);
+        restartButton.SetActive(true);
         pauseText.enabled = true;
         pausePanel.GetComponent<FadePausePanel>().setPauseColor();
         Time.timeScale = 0f;
@@ -209,6 +216,8 @@ public class UIController : MonoBehaviour
         isPaused = false;
         //pausePanel.SetActive(false);
         resumeButton.SetActive(false);
+        quitButton.SetActive(false);
+        restartButton.SetActive(false);
         pauseText.enabled = false;
         pausePanel.GetComponent<FadePausePanel>().setResumeColor();
     }
