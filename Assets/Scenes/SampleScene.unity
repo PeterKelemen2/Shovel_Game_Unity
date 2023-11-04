@@ -6552,8 +6552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocks:
-  - {fileID: 2512420872646104000, guid: afce59ee075578f41928784023069263, type: 3}
+  - {fileID: 2512420872646104000, guid: 32834b7df69d2c148b7a07257bb4c924, type: 3}
   - {fileID: 1788188444793158225, guid: ff414af71a7ec0749911f1b74c38e6a7, type: 3}
+  - {fileID: 1788188444793158225, guid: c73e03e622f4b1d40a730d2fd59a3fe7, type: 3}
   shovel: {fileID: 3676282141701471210, guid: e628ce1382c8b124ba6f135a484d1259, type: 3}
   camera: {fileID: 963194225}
   shovelDMG: 1
