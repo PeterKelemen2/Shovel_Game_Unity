@@ -20,6 +20,9 @@ TagManager:
   - Button_Yellow
   - Tick
   - ShovelTitle
+  - Block_Dirt_Stones
+  - Block_Dirt
+  - Block_Stone
   layers:
   - Default
   - TransparentFX

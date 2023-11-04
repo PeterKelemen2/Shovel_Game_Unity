@@ -35,14 +35,19 @@ public class Block : MonoBehaviour
     {
         switch (gameObject.tag)
         {
-            case "Dirt":
+            case "Block_Dirt":
                 health = 2;
                 blockValue = 2;
                 setHPText();
                 break;
-            case "Stone":
+            case "Block_Stone":
                 health = 5;
                 blockValue = 5;
+                setHPText();
+                break;
+            case "Block_Dirt_Stones":
+                health = 3;
+                blockValue = 3;
                 setHPText();
                 break;
             default:

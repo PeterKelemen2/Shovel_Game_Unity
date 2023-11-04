@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9166404330413873023}
   m_Layer: 0
   m_Name: Block_Stone
-  m_TagString: Stone
+  m_TagString: Block_Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -145,7 +145,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 963798294112862009, guid: 98280181f64758144aada458f274afb9, type: 3}
+  - {fileID: 2100000, guid: 224de5a1c3ba5f948af30bd7826e4666, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
