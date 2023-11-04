@@ -45,7 +45,7 @@ public class PlayerFollower : MonoBehaviour
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition,
                 smoothSpeed * Time.deltaTime);
 
-            Vector2 newOffset = new Vector2(0f, smoothedPosition[1] * -0.04f);
+            Vector2 newOffset = new Vector2(0f, smoothedPosition[1] * 0.07f);
             // Update the material's mainTextureOffset.
             rend.material.mainTextureOffset = newOffset;
 
