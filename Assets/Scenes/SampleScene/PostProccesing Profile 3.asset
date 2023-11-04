@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6177897764157186666
+--- !u!114 &-3656685892712753861
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: PostProccesing Profile
+  m_Name: PostProccesing Profile 3
   m_EditorClassIdentifier: 
   components:
-  - {fileID: -6177897764157186666}
+  - {fileID: -3656685892712753861}
