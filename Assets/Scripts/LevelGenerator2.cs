@@ -63,7 +63,7 @@ public class LevelGenerator2 : MonoBehaviour
     private void placeBlock(float x, float y)
     {
         GameObject blockObject = Instantiate(blocks[pickBlock()],
-            new Vector3(x, y, 0f),
+            new Vector3(x, y, 13f),
             Quaternion.identity);
 
         Block blockScript = blockObject.GetComponent<Block>();
@@ -88,7 +88,7 @@ public class LevelGenerator2 : MonoBehaviour
     {
         cameraY = camera.transform.position.y;
         if (Math.Abs(SpawnedObjects[SpawnedObjects.Count - 1].transform.position.y) -
-            Math.Abs(cameraY) < 4f)
+            Math.Abs(cameraY) < 8f)
         {
             startSpawnY--;
             for (int i = 0; i < 5; i++)
@@ -97,7 +97,7 @@ public class LevelGenerator2 : MonoBehaviour
             }
         }
 
-        if (Math.Abs(cameraY) - Math.Abs(SpawnedObjects[hideOnRow].transform.position.y) > 6f)
+        if (Math.Abs(cameraY) - Math.Abs(SpawnedObjects[hideOnRow].transform.position.y) > 10f)
         {
             destroyFirstRow();
         }

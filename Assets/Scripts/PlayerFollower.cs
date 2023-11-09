@@ -22,7 +22,7 @@ public class PlayerFollower : MonoBehaviour
     void Start()
     {
         toFollow = Instantiate(player,
-            new Vector3(0f, 4f, 0f),
+            new Vector3(0f, 2f, 13f),
             Quaternion.identity);
 
         toFollow.AddComponent<ShovelController>();
@@ -40,7 +40,7 @@ public class PlayerFollower : MonoBehaviour
         {
             float targetY = (toFollow.transform.position.y) - 2f;
 
-            Vector3 targetPosition = new Vector3(0f, targetY, -6.5f);
+            Vector3 targetPosition = new Vector3(0f, targetY, transform.position.z);
 
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition,
                 smoothSpeed * Time.deltaTime);
