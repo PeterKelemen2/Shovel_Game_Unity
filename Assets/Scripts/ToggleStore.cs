@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
 
 
-public class TogglHeadStoreMenu : MonoBehaviour
+public class ToggleStore : MonoBehaviour
 {
     private bool isOpen;
     private Vector3 openPosition = new(-284f, 184f, 0f);
@@ -20,8 +19,8 @@ public class TogglHeadStoreMenu : MonoBehaviour
     private void Update()
     {
         Vector3 targetPosition = isOpen ? openPosition : closedPosition;
-        transform.localPosition = Vector3.Lerp(transform.localPosition, 
-            targetPosition, 
+        transform.localPosition = Vector3.Lerp(transform.localPosition,
+            targetPosition,
             smoothSpeed * Time.deltaTime);
     }
 
@@ -29,18 +28,4 @@ public class TogglHeadStoreMenu : MonoBehaviour
     {
         isOpen = !isOpen;
     }
-
-    // public void toggleStore()
-    // {
-    //     if (isOpen)
-    //     {
-    //         transform.localPosition = closedPosition;
-    //         isOpen = false;
-    //     }
-    //     else
-    //     {
-    //         transform.localPosition = openPosition;
-    //         isOpen = true;
-    //     }
-    // }
 }
