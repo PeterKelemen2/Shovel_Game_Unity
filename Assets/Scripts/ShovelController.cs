@@ -1,24 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using Unity.VisualScripting;
-using UnityEditor;
-// using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
-using Random = System.Random;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Vector3 = UnityEngine.Vector3;
 
 public class ShovelController : MonoBehaviour
 {
     //public GameObject prefab;
     private bool isPlaying = true;
+    private bool isMovingLeft = false;
+    private bool isMovingRight = false;
     private float upForce = 5f;
-    private float moveSpeed = 7f;
+    private float moveSpeed = 10f;
+    private float smoothFactor = 2f;
     private float horizontalInput;
+
     private Rigidbody rb;
+
     // public List<Material> materialList = new();
+    public Button leftButton;
+    public Button rightButton;
 
     private Dictionary<String, Material> materialDictionary = new();
 
@@ -39,6 +42,9 @@ public class ShovelController : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         setUpMaterialDict();
+
+        //leftButton.onClick.AddListener(MoveLeft);
+        //rightButton.onClick.AddListener(MoveRight);
     }
 
     public void setShovelMaterial(String material)
@@ -76,13 +82,29 @@ public class ShovelController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovePlayer();
+        //MovePlayer();
     }
-
 
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+        if (isPlaying)
+        {
+            if (isMovingLeft)
+            {
+                MovePlayer(Vector3.left);
+            }
+            else if (isMovingRight)
+            {
+                MovePlayer(Vector3.right);
+            }
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
+        }
     }
 
     private bool _canTrigger = true;
@@ -153,27 +175,49 @@ public class ShovelController : MonoBehaviour
         }
     }
 
-    public void movePlayerLeft()
+
+    public void OnPointerDownLeft()
     {
-        if (isPlaying)
-        {
-            var moveDirection = new Vector3(horizontalInput, 0, 0);
-            if (!Physics.Raycast(transform.position, moveDirection, out _, 0.2f))
-            {
-                var velocity = rb.velocity;
-                velocity = new Vector3(moveDirection.x * moveSpeed,
-                    velocity.y, velocity.z);
-                rb.velocity = velocity;
-            }
-        }
+        isMovingLeft = true;
+    }
+
+    public void OnPointerDownRight()
+    {
+        isMovingRight = true;
+    }
+
+    public void OnPointerUp()
+    {
+        isMovingLeft = false;
+        isMovingRight = false;
+        rb.angularVelocity = Vector3.zero;
     }
     
-    private void MovePlayer()
+    private void MovePlayer(Vector3 moveDirection)
+    {
+        if (!Physics.Raycast(transform.position, moveDirection, out _, 0.2f))
+        {
+            var velocity = rb.velocity;
+            var targetVelocity = moveDirection * moveSpeed;
+            velocity = new Vector3(moveDirection.x * moveSpeed, 
+                velocity.y, velocity.z);
+            //rb.velocity = velocity;
+            
+            rb.velocity = Vector3.Lerp(rb.velocity, targetVelocity, Time.deltaTime * smoothFactor);
+        }
+        else
+        {
+            rb.velocity = Vector3.zero;
+        }
+    }
+
+
+    private void MovePlayer2()
     {
         if (isPlaying)
         {
             var moveDirection = new Vector3(horizontalInput, 0, 0);
-
+    
             if (!Physics.Raycast(transform.position, moveDirection, out _, 0.2f))
             {
                 // If no obstacles are in the way, move the object.

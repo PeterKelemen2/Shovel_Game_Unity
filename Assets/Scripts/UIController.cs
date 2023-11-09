@@ -403,9 +403,5 @@ public class UIController : MonoBehaviour
         Debug.Log("Shovel cost received from button: " + shovelCost);
     }
 
-    public void movePlayerLeftUICall()
-    {
-        ShovelController sc = FindObjectOfType<ShovelController>();
-        sc.movePlayerLeft();
-    }
+    
 }

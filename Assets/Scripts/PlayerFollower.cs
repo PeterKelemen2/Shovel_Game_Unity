@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerFollower : MonoBehaviour
 {
-    public GameObject player; // Reference to the player's Transform
-    private GameObject toFollow;
+    //public GameObject player; // Reference to the player's Transform
+    public GameObject toFollow;
     public GameObject background;
     private float smoothSpeed = 2f; // Adjust the smoothness of the camera follow
     private bool _isplayerNotNull;
@@ -21,11 +21,11 @@ public class PlayerFollower : MonoBehaviour
 
     void Start()
     {
-        toFollow = Instantiate(player,
-            new Vector3(0f, 2f, 13f),
-            Quaternion.identity);
+        // toFollow = Instantiate(player,
+        //     new Vector3(0f, 2f, 13f),
+        //     Quaternion.identity);
 
-        toFollow.AddComponent<ShovelController>();
+        //toFollow.AddComponent<ShovelController>();
 
         _isplayerNotNull = toFollow != null;
         rend = background.GetComponent<Renderer>();
@@ -35,6 +35,11 @@ public class PlayerFollower : MonoBehaviour
     }
 
     void Update()
+    {
+        moveCamera();
+    }
+
+    private void moveCamera()
     {
         if (_isplayerNotNull)
         {
