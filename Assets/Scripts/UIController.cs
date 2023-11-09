@@ -402,4 +402,10 @@ public class UIController : MonoBehaviour
         shovelCost = cost;
         Debug.Log("Shovel cost received from button: " + shovelCost);
     }
+
+    public void movePlayerLeftUICall()
+    {
+        ShovelController sc = FindObjectOfType<ShovelController>();
+        sc.movePlayerLeft();
+    }
 }

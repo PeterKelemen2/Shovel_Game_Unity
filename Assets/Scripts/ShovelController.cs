@@ -153,7 +153,21 @@ public class ShovelController : MonoBehaviour
         }
     }
 
-
+    public void movePlayerLeft()
+    {
+        if (isPlaying)
+        {
+            var moveDirection = new Vector3(horizontalInput, 0, 0);
+            if (!Physics.Raycast(transform.position, moveDirection, out _, 0.2f))
+            {
+                var velocity = rb.velocity;
+                velocity = new Vector3(moveDirection.x * moveSpeed,
+                    velocity.y, velocity.z);
+                rb.velocity = velocity;
+            }
+        }
+    }
+    
     private void MovePlayer()
     {
         if (isPlaying)
