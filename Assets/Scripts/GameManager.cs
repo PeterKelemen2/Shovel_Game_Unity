@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 public class GameManager : MonoBehaviour
 {
     private float timeScale = 4.0f;
-    private int targetFPS = 1000;
+    private int targetFPS = 60;
 
     void Start()
     {

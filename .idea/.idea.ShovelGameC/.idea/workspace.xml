@@ -5,25 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40d56e43-72e6-4a1f-97bc-4fdc5cfe98f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.3_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.3_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/Grass &amp; rocks pattern.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/Grass &amp; rocks pattern.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/Grass pattern 01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/Grass pattern 01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/Ground &amp; rocks pattern 01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/Ground &amp; rocks pattern 01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/Ground &amp; rocks pattern 02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/Ground &amp; rocks pattern 02.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Cave_Background.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Cave_Background.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/New Universal Render Pipeline Asset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/New Universal Render Pipeline Asset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBuild/experimental_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBuild/experimental_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Shovel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Shovel.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,23 +22,8 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/ShovelController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Scripts/UIController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Prefabs/Shovel.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/3DGD/ShovelGameC/Assets/Prefabs/Shovel.prefab" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -143,7 +115,8 @@
       <workItem from="1699569507990" duration="5964000" />
       <workItem from="1699576018762" duration="319000" />
       <workItem from="1699580285992" duration="31000" />
-      <workItem from="1699584105293" duration="1230000" />
+      <workItem from="1699584105293" duration="1623000" />
+      <workItem from="1699586025264" duration="718000" />
     </task>
     <task id="LOCAL-00001" summary="Further optimization">
       <option name="closed" value="true" />
@@ -153,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699573996308</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Messing around with shader settings to bring up performance">
+      <option name="closed" value="true" />
+      <created>1699585531880</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699585531880</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +157,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Further optimization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Further optimization" />
+    <MESSAGE value="Messing around with shader settings to bring up performance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Messing around with shader settings to bring up performance" />
   </component>
 </project>

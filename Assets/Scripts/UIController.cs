@@ -112,7 +112,7 @@ public class UIController : MonoBehaviour
         timeOverText.enabled = false;
         timeLeftAnimator = GetComponentInChildren<Animator>();
         
-        int timeLeft = 3000;
+        int timeLeft = 300;
         FindObjectOfType<TimeBar>().setDuration(timeLeft);
         
         StartCoroutine(startCountownFrom(timeLeft + 1));
