@@ -51,12 +51,13 @@ public class LevelGenerator2 : MonoBehaviour
 
         cameraY = camera.transform.position.y;
         generateTopLayer();
+        InvokeRepeating("generateLevel",0, 0.1f);
     }
 
 
     void Update()
     {
-        generateLevel();
+        //generateLevel();
     }
 
 

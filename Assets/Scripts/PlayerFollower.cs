@@ -21,13 +21,6 @@ public class PlayerFollower : MonoBehaviour
 
     void Start()
     {
-        // toFollow = Instantiate(player,
-        //     new Vector3(0f, 2f, 13f),
-        //     Quaternion.identity);
-
-        //toFollow.AddComponent<ShovelController>();
-
-        _isplayerNotNull = toFollow != null;
         rend = background.GetComponent<Renderer>();
         var material = rend.material;
         material.mainTextureScale = uvScale;
@@ -41,7 +34,7 @@ public class PlayerFollower : MonoBehaviour
 
     private void moveCamera()
     {
-        if (_isplayerNotNull)
+        if (toFollow != null)
         {
             float targetY = (toFollow.transform.position.y) - 2f;
 

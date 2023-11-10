@@ -18,7 +18,6 @@ public class UIController : MonoBehaviour
     private bool isCountingDown = true;
     public List<Button> buttonList = new();
     private RawImage[] rawImages;
-    private RawImage tickImage;
     private int score = 0;
 
     public GameObject pausePanel;
@@ -113,7 +112,7 @@ public class UIController : MonoBehaviour
         timeOverText.enabled = false;
         timeLeftAnimator = GetComponentInChildren<Animator>();
         
-        int timeLeft = 30;
+        int timeLeft = 3000;
         FindObjectOfType<TimeBar>().setDuration(timeLeft);
         
         StartCoroutine(startCountownFrom(timeLeft + 1));
@@ -121,20 +120,7 @@ public class UIController : MonoBehaviour
         setUpDictionary();
         setBankText(score);
         setAllButtonTextColorToGray();
-
-        foreach (Button button in buttonList)
-        {
-            rawImages = button.GetComponentsInChildren<RawImage>();
-            foreach (RawImage image in rawImages)
-            {
-                if (image.CompareTag("Tick"))
-                {
-                    tickImage = image;
-                }
-            }
-
-            tickImage.enabled = false;
-        }
+        
     }
 
     public float getDuration()

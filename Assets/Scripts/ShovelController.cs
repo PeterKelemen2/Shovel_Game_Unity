@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
+// using Random = System.Random;
 using Vector3 = UnityEngine.Vector3;
 
 public class ShovelController : MonoBehaviour
@@ -131,27 +133,8 @@ public class ShovelController : MonoBehaviour
 
     private void playJumpSound()
     {
-        System.Random rnd = new System.Random();
-        int randomNumber = rnd.Next();
-        bool myBool = false;
-        if (randomNumber % 2 == 0)
-        {
-            myBool = true;
-        }
-        else
-        {
-            myBool = false;
-        }
-
-        switch (myBool)
-        {
-            case true:
-                playSound("Jump1");
-                break;
-            case false:
-                playSound("Jump2");
-                break;
-        }
+        int randomNumber = Random.Range(0, 2);
+        playSound("Jump" + (randomNumber + 1));
     }
 
     public void playSound(String sound)
