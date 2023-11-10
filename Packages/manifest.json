@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "com.unity.adaptiveperformance": "5.0.2",
+    "com.unity.adaptiveperformance.google.android": "1.2.1",
     "com.unity.ads": "4.4.2",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.ide.vscode": "1.2.5",
+    "com.unity.postprocessing": "3.2.2",
     "com.unity.render-pipelines.universal": "12.1.13",
     "com.unity.shadergraph": "12.1.13",
     "com.unity.textmeshpro": "3.0.6",

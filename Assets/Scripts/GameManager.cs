@@ -6,10 +6,11 @@ using UnityEngine.SocialPlatforms;
 public class GameManager : MonoBehaviour
 {
     private float timeScale = 4.0f;
+    private int targetFPS = 1000;
 
     void Start()
     {
-        
+        Application.targetFrameRate = targetFPS;
     }
 
     void Update()

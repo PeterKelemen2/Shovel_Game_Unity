@@ -5,52 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40d56e43-72e6-4a1f-97bc-4fdc5cfe98f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.0_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.0_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.0_mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.0_mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.1_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.1_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.1_mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.1_mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CasualGameSounds/Sounds.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CasualGameSounds/Sounds.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/FPS_Font_AquaGlow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/FPS_Font_AquaGlow.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShovelGameC/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.3_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBuild/ShovelGame-android-alpha-v1.0.3_BurstDebugInformation_DoNotShip/tempburstlibs/armeabi-v7a/lib_burst_generated.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/Grass &amp; rocks pattern.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/Grass &amp; rocks pattern.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/diffuse.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/diffuse.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/normal.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass &amp; rocks/normal.tga" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/Grass pattern 01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/Grass pattern 01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/diffuse.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/diffuse.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/normal.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Grass 01/normal.tga" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/Ground &amp; rocks pattern 01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/Ground &amp; rocks pattern 01.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/diffuse.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/diffuse.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/normal.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 01/normal.tga" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/Ground &amp; rocks pattern 02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/Ground &amp; rocks pattern 02.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/diffuse.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/diffuse.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/normal.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Ground &amp; rocks 02/normal.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/Lava pattern.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/Lava pattern.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/diffuse.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/diffuse.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/emissive.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/emissive.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/normal.tga" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Ground textures pack/_Lava/normal.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Background.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Background.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Bedrock_mat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Bedrock_mat.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Cave_Background.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Cave_Background.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Dirt_Bottom.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Dirt_Bottom.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Dirt_HQ.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Dirt_HQ.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/StoneMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/StoneMat.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/gradleTemplate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Android/gradleTemplate.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Block_Dirt.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Block_Dirt.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/New Universal Render Pipeline Asset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/New Universal Render Pipeline Asset_Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/New Universal Render Pipeline Asset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/New Universal Render Pipeline Asset.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Boundary_Scroller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Boundary_Scroller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtonScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtonScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FadePanelClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FadePanelClass.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FadePausePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FadePausePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGenerator2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelGenerator2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerFollower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerFollower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShovelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShovelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ToggleStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ToggleStore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +142,8 @@
       <updated>1699569506275</updated>
       <workItem from="1699569507990" duration="5964000" />
       <workItem from="1699576018762" duration="319000" />
+      <workItem from="1699580285992" duration="31000" />
+      <workItem from="1699584105293" duration="1230000" />
     </task>
     <task id="LOCAL-00001" summary="Further optimization">
       <option name="closed" value="true" />
