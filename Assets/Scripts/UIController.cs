@@ -31,7 +31,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI timeOverText;
 
     private Animator timeLeftAnimator;
-    
+
 
     private Color equipedColor = new Color(0.66f, 1f, 0.6f);
     private Color notOwnedColor = new Color(0.63f, 0.63f, 0.63f);
@@ -65,7 +65,7 @@ public class UIController : MonoBehaviour
     {
         //FindObjectOfType<TimeBar>().setDuration(timeLeft);
     }
-    
+
     private void setShovelCost()
     {
         blueCost = FindObjectOfType<ButtonScript>().setBlueCost();
@@ -112,23 +112,22 @@ public class UIController : MonoBehaviour
         pauseText.enabled = false;
         timeOverText.enabled = false;
         timeLeftAnimator = GetComponentInChildren<Animator>();
-        
+
         int timeLeft = 300;
         FindObjectOfType<TimeBar>().setDuration(timeLeft);
-        
+
         StartCoroutine(startCountownFrom(timeLeft + 1));
 
         setUpDictionary();
         setBankText(score);
         setAllButtonTextColorToGray();
-        
     }
 
     public float getDuration()
     {
         return timeLeft;
     }
-    
+
     private void setBankText(int score)
     {
         bankText.SetText("Bank: " + score + "$");
@@ -187,12 +186,12 @@ public class UIController : MonoBehaviour
     public void pauseGame()
     {
         isPaused = true;
-        //pausePanel.SetActive(true);
         resumeButton.SetActive(true);
         quitButton.SetActive(true);
         restartButton.SetActive(true);
         pauseText.enabled = true;
         pausePanel.GetComponent<FadePausePanel>().setPauseColor();
+        pauseButton.GetComponent<FaderScript>().fadeOut();
         Time.timeScale = 0f;
     }
 
@@ -201,11 +200,11 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false;
-        //pausePanel.SetActive(false);
         resumeButton.SetActive(false);
         quitButton.SetActive(false);
         restartButton.SetActive(false);
         pauseText.enabled = false;
+        pauseButton.GetComponent<FaderScript>().fadeIn();
         pausePanel.GetComponent<FadePausePanel>().setResumeColor();
     }
 
@@ -389,6 +388,4 @@ public class UIController : MonoBehaviour
         shovelCost = cost;
         Debug.Log("Shovel cost received from button: " + shovelCost);
     }
-
-    
 }
