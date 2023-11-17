@@ -23,6 +23,7 @@ public class UIController : MonoBehaviour
     public GameObject pausePanel;
     private bool isPaused = false;
     public TextMeshProUGUI pauseText;
+    public Button pauseButton;
     public GameObject resumeButton;
     public GameObject playAgainButton;
     public GameObject quitButton;
@@ -183,7 +184,7 @@ public class UIController : MonoBehaviour
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
-    private void pauseGame()
+    public void pauseGame()
     {
         isPaused = true;
         //pausePanel.SetActive(true);
